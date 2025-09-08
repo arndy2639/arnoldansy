@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARNOLD ARNDY | Motion Designer</title>
+  <meta name="description" content="Arnold Arndy - Professional Motion Designer specializing in 2D/3D animation, visual storytelling, and motion graphics">
+  <meta name="keywords" content="motion design, animation, 2D animation, 3D animation, visual storytelling, motion graphics">
+  <meta name="author" content="Arnold Arndy">
+  
+  <!-- Preload critical resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Preload hero video -->
+  <link rel="preload" as="video" href="hero-bg.mp4">
+</head>
+<body class="dark-theme">
+  <!-- Skip to content link for accessibility -->
+  <a href="#main-content" class="skip-to-content">Skip to Content</a>
+
+  <!-- Theme Toggle -->
+  <button class="theme-toggle" aria-label="Toggle theme">
+    <i class="fas fa-moon"></i>
+    <i class="fas fa-sun"></i>
+  </button>
+
+  <!-- Global glow circles -->
+  <div class="glow-circle glow-1"></div>
+  <div class="glow-circle glow-2"></div>
+  <div class="glow-circle glow-3"></div>
+  <div class="glow-circle glow-4"></div>
+  <div class="glow-circle glow-5"></div>
+  <div class="glow-circle glow-6"></div>
+
+  <!-- Header Bar -->
+  <header class="header-bar">
+    <nav class="navbar">
+      <ul class="nav-left">
+        <li><a href="#about" aria-label="About Me">About Me</a></li>
+        <li><a href="#portfolio" aria-label="My Work">My Work</a></li>
+        <li><a href="#get-quote" aria-label="Get A Quote">Get A Quote</a></li>
+      </ul>
+
+      <div class="logo">
+        <a href="#home" aria-label="Home">
+          <div class="logo-square">
+            <img src="Images/Logo.png" alt="ARNOLD ARNDY Logo" width="45" height="45" loading="eager">
+          </div>
+        </a>
+      </div>
+
+      <ul class="nav-right">
+        <li><a href="https://www.instagram.com/arnold_animation?igsh=eXptcW5jaGo1enU1" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="https://www.linkedin.com/in/arnold-arndy?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a></li>
+        <li><a href="https://www.behance.net/arnoldarndy" aria-label="Behance" target="_blank" rel="noopener noreferrer"><i class="fab fa-behance"></i></a></li>
+        <li><a href="https://youtube.com/@arnoldarndy?si=IXZCIhWHHG3LqBhE" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a></li>
+      </ul>
+      
+      <!-- Mobile menu button -->
+      <button class="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu">
+    <ul>
+      <li><a href="#about" aria-label="About Me">About Me</a></li>
+      <li><a href="#portfolio" aria-label="My Work">My Work</a></li>
+      <li><a href="#get-quote" aria-label="Get A Quote">Get A Quote</a></li>
+      <li class="mobile-social">
+        <a href="https://www.instagram.com/arnold_animation?igsh=eXptcW5jaGo1enU1" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/arnold-arndy?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.behance.net/arnoldarndy" aria-label="Behance" target="_blank" rel="noopener noreferrer"><i class="fab fa-behance"></i></a>
+        <a href="https://youtube.com/@arnoldarndy?si=IXZCIhWHHG3LqBhE" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <!-- Fallback background if video doesn't load -->
+    <div class="hero-fallback-bg"></div>
+    <video autoplay muted loop playsinline preload="auto" poster="Images/Blueprint Animation thumbnail.jpg" id="hero-video">
+      <source src="Images/Blueprint Showreel.mp4" type="video/mp4">
+      <source src="Images/Blueprint Animation.webm" type="video/webm">
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="hero-overlay-text">
+      <h1 class="hero-title">
+        <span class="hero-text-line fade-in" style="animation-delay: 0.5s">Howdy, I'm Arndy</span>
+      </h1>
+      <h2 class="hero-text-line fade-in" style="animation-delay: 1.5s">Art Director | 2D/3D Animator | Visual Storyteller</h2>
+      <h3 class="hero-text-line fade-in" style="animation-delay: 2.5s">Boosting Brand Engagement with Stunning Visual Experiences</h3>
+      <a href="#portfolio" class="btn glass-btn fade-in" style="animation-delay: 3.5s" id="view-work-btn">View My Work</a>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <!-- About Section -->
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+      </div>
+      
+      <!-- Background Glow -->
+      <div class="bg-glow glow-left"></div>
+      <div class="bg-glow glow-right"></div>
+
+      <div class="desktop">
+        <!-- About Me -->
+        <div class="card" id="about-me">
+          <div class="card-header">
+            <div class="traffic-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <span>about-me</span>
+          </div>
+          <div class="card-body">
+            <p>Nice to meet you! I'm Arnold, an <strong>Animator & Motion Designer</strong> with 4+ years' experience crafting visuals that move, engage, and inspire.</p>
+            <p>I blend creativity with technical precision, using After Effects, Premiere Pro, Blender, Cinema 4D, and AI-powered workflows to bring ideas to life.</p>
+            <p>I've collaborated with brands like Visa, Safaricom (M-Pesa), LG, Duracoat Paints, and Bamburi Cement, delivering visuals that connect and stand out.</p>
+            <p>For me, design isn't just work — it's a space to experiment, innovate, and give back through open collaboration.</p>
+          </div>
+        </div>
+
+        <!-- Where I Work -->
+        <div class="card compact" id="where-i-work">
+          <div class="card-header">
+            <div class="traffic-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <span>where-i-work</span>
+          </div>
+          <div class="card-body">
+            <ul>
+              <li><i class="fa-solid fa-building"></i> Currently based in <strong>Creativedge FCB, Kenya</strong></li>
+              <li><i class="fa-solid fa-globe"></i> Available for remote collaborations across Africa & worldwide</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Me Online -->
+        <div class="card compact" id="me-online">
+          <div class="card-header">
+            <div class="traffic-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <span>me-online</span>
+          </div>
+          <div class="card-body">
+            <ul>
+              <li><i class="fa-brands fa-instagram"></i> <a href="https://www.instagram.com/arnold_animation?igsh=eXptcW5jaGo1enU1" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+              <li><i class="fa-brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/arnold-arndy?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+              <li><i class="fa-brands fa-behance"></i> <a href="https://www.behance.net/arnoldarndy" target="_blank" rel="noopener noreferrer">Behance</a></li>
+              <li><i class="fa-brands fa-youtube"></i> <a href="https://youtube.com/@arnoldarndy?si=IXZCIhWHHG3LqBhE" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Portrait -->
+        <div class="card" id="portrait">
+          <div class="portrait-box">
+            <img src="Bento/Profile.jpg" alt="Arnold Nzyoka - Motion Designer" width="300" height="300" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+      <div class="container">
+        <h2 class="section-title">My Work</h2>
+        
+        <!-- Work Navigation Tabs -->
+        <div class="work-tabs">
+          <button class="work-tab active" data-tab="projects">Projects</button>
+          <button class="work-tab" data-tab="bentos">Bentos</button>
+          <button class="work-tab" data-tab="product">Product</button>
+        </div>
+
+        <!-- Projects Content -->
+        <div class="work-content active" id="projects-content">
+          <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project video-project">
+              <img src="Images/Luxury Loyue Perfume.jpg" alt="Luxury Foyer Animation - 3D motion design project" class="video-poster" width="500" height="281" loading="lazy">
+              <video class="portfolio-video" preload="metadata" muted playsinline poster="project1-poster.jpg">
+                <source src="Images/Luxury Loyue Perfume.mp4" type="video/mp4">
+                <source src="project1.webm" type="video/webm">
+              </video>
+              <div class="play-button"></div>
+              <div class="overlay">
+                <h3>Luxury Foyer Animation</h3>
+                <p>3D Motion Design / Video Editing</p>
+              </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project video-project">
+              <img src="Images/Ice Cream Pack Reveal.jpg" alt="Brand Promo Video - Visual storytelling project" class="video-poster" width="500" height="281" loading="lazy">
+              <video class="portfolio-video" preload="metadata" muted playsinline poster="project2-poster.jpg">
+                <source src="Images/Ice Cream Pack Reveal.mp4" type="video/mp4">
+                <source src="project2.webm" type="video/webm">
+              </video>
+              <div class="play-button"></div>
+              <div class="overlay">
+                <h3>Brand Promo Video</h3>
+                <p>Visual Storytelling / Motion Graphics</p>
+              </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project video-project">
+              <img src="Images/Tusker CGI_1.jpg" alt="3D Motion Graphics - Animation and branding project" class="video-poster" width="500" height="281" loading="lazy">
+              <video class="portfolio-video" preload="metadata" muted playsinline poster="project3-poster.jpg">
+                <source src="Images/Tusker CGI_1.mp4" type="video/mp4">
+                <source src="project3.webm" type="video/webm">
+              </video>
+              <div class="play-button"></div>
+              <div class="overlay">
+                <h3>3D Motion Graphics</h3>
+                <p>Animation / Branding</p>
+              </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project video-project">
+              <img src="Images/BluePrint.jpg" alt="Social Media Campaign - Motion and video content" class="video-poster" width="500" height="281" loading="lazy">
+              <video class="portfolio-video" preload="metadata" muted playsinline poster="project4-poster.jpg">
+                <source src="Images/BluePrint.mp4" type="video/mp4">
+                <source src="project4.webm" type="video/webm">
+              </video>
+              <div class="play-button"></div>
+              <div class="overlay">
+                <h3>Social Media Campaign</h3>
+                <p>Motion & Video Content</p>
+              </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="project video-project">
+              <img src="Images/project5.jpg" alt="Product Showcase - 3D product animation" class="video-poster" width="500" height="281" loading="lazy">
+              <video class="portfolio-video" preload="metadata" muted playsinline poster="project5-poster.jpg">
+                <source src="Images/project5.mp4" type="video/mp4">
+                <source src="project5.webm" type="video/webm">
+              </video>
+              <div class="play-button"></div>
+              <div class="overlay">
+                <h3>Product Showcase</h3>
+                <p>3D Product Animation</p>
+              </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="project video-project">
+              <img src="Images/project6.jpg" alt="Brand Identity - Motion graphics for brand" class="video-poster" width="500" height="281" loading="lazy">
+              <video class="portfolio-video" preload="metadata" muted playsinline poster="project6-poster.jpg">
+                <source src="Images/project6.mp4" type="video/mp4">
+                <source src="project6.webm" type="video/webm">
+              </video>
+              <div class="play-button"></div>
+              <div class="overlay">
+                <h3>Brand Identity</h3>
+                <p>Motion Graphics / Branding</p>
+              </div>
+            </div>
+
+            <!-- Additional projects (hidden initially) -->
+            <!-- Project 7 -->
+            <div class="project video-project hidden-item">
+              <img src="Images/project7.jpg" alt="Character Animation - Animated character storytelling" class="video-poster" width="500" height="281" loading="lazy">
+              <video class="portfolio-video" preload="metadata" muted playsinline poster="project7-poster.jpg">
+                <source src="Images/project7.mp4" type="video/mp4">
+                <source src="project7.webm" type="video/webm">
+              </video>
+              <div class="play-button"></div>
+              <div class="overlay">
+                <h3>Character Animation</h3>
+                <p>2D Animation / Storytelling</p>
+              </div>
+            </div>
+
+            <!-- Project 8 -->
+            <div class="project video-project hidden-item">
+              <img src="Images/project8.jpg" alt="Architectural Visualization - 3D architectural animation" class="video-poster" width="500" height="281" loading="lazy">
+              <video class="portfolio-video" preload="metadata" muted playsinline poster="project8-poster.jpg">
+                <source src="Images/project8.mp4" type="video/mp4">
+                <source src="project8.webm" type="video/webm">
+              </video>
+              <div class="play-button"></div>
+              <div class="overlay">
+                <h3>Architectural Visualization</h3>
+                <p>3D Architectural Animation</p>
+              </div>
+            </div>
+
+            <!-- Project 9 -->
+            <div class="project video-project hidden-item">
+              <img src="Images/project9.jpg" alt="Event Promo - Event promotion animation" class="video-poster" width="500" height="281" loading="lazy">
+              <video class="portfolio-video" preload="metadata" muted playsinline poster="project9-poster.jpg">
+                <source src="Images/project9.mp4" type="video/mp4">
+                <source src="project9.webm" type="video/webm">
+              </video>
+              <div class="play-button"></div>
+              <div class="overlay">
+                <h3>Event Promo</h3>
+                <p>Promotional Animation</p>
+              </div>
+            </div>
+
+            <!-- Project 10 -->
+            <div class="project video-project hidden-item">
+              <img src="Images/project10.jpg" alt="Title Sequence - Film title sequence design" class="video-poster" width="500" height="281" loading="lazy">
+              <video class="portfolio-video" preload="metadata" muted playsinline poster="project10-poster.jpg">
+                <source src="Images/project10.mp4" type="video/mp4">
+                <source src="project10.webm" type="video/webm">
+              </video>
+              <div class="play-button"></div>
+              <div class="overlay">
+                <h3>Title Sequence</h3>
+                <p>Film Title Design</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- More button for projects -->
+          <div class="more-button-container">
+            <button class="glass-btn more-btn" data-type="projects">View More Projects</button>
+          </div>
+        </div>
+
+        <!-- Bentos Content -->
+        <div class="work-content" id="bentos-content">
+          <div class="bentos-grid">
+            <!-- Bento 1 -->
+            <div class="bento-item">
+              <img src="Bento/Bento-1.jpg" alt="Minimalist Bento - Clean and modern design" width="400" height="300" loading="lazy">
+              <div class="bento-overlay">
+                <h3>Minimalist Bento</h3>
+                <p>Clean & Modern Design</p>
+              </div>
+            </div>
+            
+            <!-- Bento 2 -->
+            <div class="bento-item">
+              <img src="Bento/Bento-2.jpg" alt="Geometric Bento - Structured layout design" width="400" height="300" loading="lazy">
+              <div class="bento-overlay">
+                <h3>Geometric Bento</h3>
+                <p>Structured Layout</p>
+              </div>
+            </div>
+            
+            <!-- Bento 3 -->
+            <div class="bento-item">
+              <img src="Bento/Bento-3.jpg" alt="Organic Bento - Fluid and natural design" width="400" height="300" loading="lazy">
+              <div class="bento-overlay">
+                <h3>Organic Bento</h3>
+                <p>Fluid & Natural Design</p>
+              </div>
+            </div>
+            
+            <!-- Bento 4 -->
+            <div class="bento-item">
+              <img src="Bento/Bento-4.jpg" alt="Abstract Bento - Creative expression design" width="400" height="300" loading="lazy">
+              <div class="bento-overlay">
+                <h3>Abstract Bento</h3>
+                <p>Creative Expression</p>
+              </div>
+            </div>
+            
+            <!-- Bento 5 -->
+            <div class="bento-item">
+              <img src="Bento/Bento-5.jpg" alt="Colorful Bento - Vibrant color design" width="400" height="300" loading="lazy">
+              <div class="bento-overlay">
+                <h3>Colorful Bento</h3>
+                <p>Vibrant Color Design</p>
+              </div>
+            </div>
+            
+            <!-- Bento 6 -->
+            <div class="bento-item">
+              <img src="Bento/Bento-6.jpg" alt="Typography Bento - Text-focused design" width="400" height="300" loading="lazy">
+              <div class="bento-overlay">
+                <h3>Typography Bento</h3>
+                <p>Text-Focused Design</p>
+              </div>
+            </div>
+            
+            <!-- Additional bentos (hidden initially) -->
+            <!-- Bento 7 -->
+            <div class="bento-item hidden-item">
+              <img src="Bento/Bento-7.jpg" alt="Pattern Bento - Repetitive pattern design" width="400" height="300" loading="lazy">
+              <div class="bento-overlay">
+                <h3>Pattern Bento</h3>
+                <p>Repetitive Pattern Design</p>
+              </div>
+            </div>
+            
+            <!-- Bento 8 -->
+            <div class="bento-item hidden-item">
+              <img src="Bento/Bento-8.jpg" alt="Gradient Bento - Smooth gradient transitions" width="400" height="300" loading="lazy">
+              <div class="bento-overlay">
+                <h3>Gradient Bento</h3>
+                <p>Smooth Gradient Transitions</p>
+              </div>
+            </div>
+            
+            <!-- Bento 9 -->
+            <div class="bento-item hidden-item">
+              <img src="Bento/Bento-9.jpg" alt="Asymmetrical Bento - Balanced asymmetry design" width="400" height="300" loading="lazy">
+              <div class="bento-overlay">
+                <h3>Asymmetrical Bento</h3>
+                <p>Balanced Asymmetry Design</p>
+              </div>
+            </div>
+            
+            <!-- Bento 10 -->
+            <div class="bento-item hidden-item">
+              <img src="Bento/Bento-10.jpg" alt="Minimalist Bento II - Simplified design approach" width="400" height="300" loading="lazy">
+              <div class="bento-overlay">
+                <h3>Minimalist Bento II</h3>
+                <p>Simplified Design Approach</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- More button for bentos -->
+          <div class="more-button-container">
+            <button class="glass-btn more-btn" data-type="bentos">View More Bentos</button>
+          </div>
+        </div>
+
+        <!-- Product Content -->
+        <div class="work-content" id="product-content">
+          <div class="product-showcase">
+            <div class="product-item">
+              <img src="product1.jpg" alt="Motion Design Pack - Complete animation toolkit" width="400" height="200" loading="lazy">
+              <div class="product-info">
+                <h3>Motion Design Pack</h3>
+                <p>Complete animation toolkit</p>
+                <span class="product-price">$149</span>
+              </div>
+            </div>
+            <div class="product-item">
+              <img src="product2.jpg" alt="3D Asset Library - Premium 3D models collection" width="400" height="200" loading="lazy">
+              <div class="product-info">
+                <h3>3D Asset Library</h3>
+                <p>Premium 3D models</p>
+                <span class="product-price">$199</span>
+              </div>
+            </div>
+            <div class="product-item">
+              <img src="product3.jpg" alt="Template Collection - Customizable motion templates" width="400" height="200" loading="lazy">
+              <div class="product-info">
+                <h3>Template Collection</h3>
+                <p>Customizable templates</p>
+                <span class="product-price">$99</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Modal -->
+    <div id="video-modal">
+      <div class="modal-content">
+        <button class="close-btn" aria-label="Close video">&times;</button>
+        <video id="modal-video" controls muted playsinline>
+          <source src="" type="video/mp4">
+          <source src="" type="video/webm">
+        </video>
+      </div>
+    </div>
+
+    <!-- Get A Quote Section -->
+    <section id="get-quote">
+      <div class="container">
+        <button class="glass-btn quote-toggle-btn" id="quote-toggle">
+          Get A Quote
+        </button>
+        
+        <div class="quote-form-container" id="quote-form-container">
+          <form class="quote-form" id="quote-form">
+            <input type="text" placeholder="Your Name" required aria-label="Your Name">
+            <input type="email" placeholder="Your Email" required aria-label="Your Email">
+            <select required aria-label="Project Type">
+              <option value="">Select Project Type</option>
+              <option value="animation">2D/3D Animation</option>
+              <option value="motion">Motion Graphics</option>
+              <option value="editing">Video Editing</option>
+              <option value="branding">Brand Identity</option>
+            </select>
+            <textarea placeholder="Project Details" required aria-label="Project Details"></textarea>
+            <button type="submit" class="glass-btn">Request Quote</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <div class="logo-square small">
+              <img src="Images/Logo.png" alt="Arnold Arndy Logo" width="40" height="40" loading="lazy">
+            </div>
+            <span>ARNOLD ARNDY</span>
+          </div>
+          <p>Motion Designer & Visual Storyteller creating stunning visual experiences that boost brand engagement.</p>
+        </div>
+        
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Navigation</h4>
+            <a href="#about">About Me</a>
+            <a href="#portfolio">My Work</a>
+            <a href="#get-quote">Get A Quote</a>
+          </div>
+          
+          <div class="footer-column">
+            <h4>Legal</h4>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Copyright</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-credits">
+          <p>Made by Arndy Studio</p>
+        </div>
+        
+        <div class="footer-copyright">
+          <p>&copy; 2025 Arnold Arndy. All rights reserved.</p>
+        </div>
+        
+        <div class="footer-social">
+          <p>Follow me on</p>
+          <div class="social-icons">
+            <a href="https://www.instagram.com/arnold_animation?igsh=eXptcW5jaGo1enU1" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/arnold-arndy?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.behance.net/arnoldarndy" aria-label="Behance" target="_blank" rel="noopener noreferrer"><i class="fab fa-behance"></i></a>
+            <a href="https://youtube.com/@arnoldarndy?si=IXZCIhWHHG3LqBhE" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JS -->
+  <script src="script.js"></script>
+</body>
+</html>
