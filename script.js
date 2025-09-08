@@ -20,8 +20,8 @@ function initWebsite() {
   // Portfolio video modal
   initVideoModal();
   
-  // Hero text fade in animation
-  initHeroAnimation();
+  // Typed hero text animation
+  initTypedAnimation();
   
   // Mobile menu functionality
   initMobileMenu();
@@ -185,29 +185,138 @@ function initVideoModal() {
 }
 
 /**
- * Hero Text Fade In Animation
+ * Typed Hero Text Animation
  */
-function initHeroAnimation() {
-  const heroTextLines = document.querySelectorAll('.hero-text-line');
+function initTypedAnimation() {
+  const typedHw = document.getElementById('typed-hw');
+  const typedArndy = document.getElementById('typed-arndy');
+  const typedSubtitle1 = document.getElementById('typed-subtitle1');
+  const typedSubtitle2 = document.getElementById('typed-subtitle2');
   const viewWorkBtn = document.getElementById('view-work-btn');
   
-  if (heroTextLines.length === 0 || !viewWorkBtn) return;
+  if (!typedHw || !typedArndy || !typedSubtitle1 || !typedSubtitle2 || !viewWorkBtn) return;
   
-  // Apply fade-in animation to each text line with delays
-  heroTextLines.forEach((line, index) => {
-    // Set the animation delay based on the index
-    const delay = parseFloat(line.style.animationDelay || '0s');
-    
-    setTimeout(() => {
-      line.classList.add('fade-in');
-    }, delay * 1000);
-  });
+  const howdyLanguages = [
+    "Howdy", "Hola", "Bonjour", "Ciao", "Hallo", "Olá", "Hej", "Salam", "Namaste",
+    "Konnichiwa", "Ni Hao", "Annyeong", "Shalom", "Sawubona", "Merhaba", "Szia",
+    "Ahoj", "Zdravo", "Hej hej", "Yassas", "Sannu", "Sveiki", "Dzień dobry",
+    "Xin chào", "Kamusta", "Tere", "Labas", "Bună", "Hei", "Halo", "Aloha",
+    "Goddag", "Privet", "Selam", "Helo", "Salve", "Moi", "Saluton", "Sawadee",
+    "Jambo", "Talofa", "Kia ora", "Yōkoso", "Bonjourno", "Salaam", "Sveikas",
+    "Shwmae", "Dia dhuit"
+  ];
   
-  // Show the button after the last text line
-  const lastDelay = parseFloat(heroTextLines[heroTextLines.length - 1].style.animationDelay || '0s');
-  setTimeout(() => {
-    viewWorkBtn.classList.add('visible');
-  }, (lastDelay + 1) * 1000);
+  const subtitle1Text = "Art Director | 2D/3D Animator | Visual Storyteller";
+  const subtitle2Text = "Boosting Brand Engagement with Stunning Visual Experiences";
+  
+  let langIndex = 0;
+  let animationStage = 0; // 0: Howdy, 1: I'm Arndy, 2: Subtitle1, 3: Subtitle2, 4: Button
+  
+  /**
+   * Main typing function
+   */
+  function typeHero() {
+    const currentLang = howdyLanguages[langIndex];
+    let hwIndex = 0;
+  
+    // Type Howdy character by character
+    function typeHowdyChar() {
+      if (hwIndex <= currentLang.length) {
+        typedHw.textContent = currentLang.slice(0, hwIndex);
+        hwIndex++;
+        setTimeout(typeHowdyChar, 150);
+      } else {
+        // After Howdy is typed, move to next animation stage
+        if (animationStage === 0) {
+          animationStage = 1;
+          setTimeout(typeArndyChar, 300); // Add space after Howdy
+        } else {
+          // If all animations are done, just continue with next greeting
+          setTimeout(() => {
+            langIndex = (langIndex + 1) % howdyLanguages.length;
+            typedHw.textContent = ""; // clear Howdy for next language
+            typeHero();
+          }, 2000);
+        }
+      }
+    }
+  
+    function typeArndyChar() {
+      // Added proper spacing between Howdy and I'm Arndy
+      const arndyText = " I'm Arndy";
+      let arndyIndex = 0;
+  
+      function typeChar() {
+        if (arndyIndex <= arndyText.length) {
+          typedArndy.textContent = arndyText.slice(0, arndyIndex);
+          arndyIndex++;
+          setTimeout(typeChar, 120);
+        } else {
+          // After "I'm Arndy" is typed, move to subtitle1
+          animationStage = 2;
+          setTimeout(typeSubtitle1Char, 500);
+        }
+      }
+  
+      typeChar();
+    }
+  
+    function typeSubtitle1Char() {
+      let subtitle1Index = 0;
+  
+      function typeChar() {
+        if (subtitle1Index <= subtitle1Text.length) {
+          typedSubtitle1.textContent = subtitle1Text.slice(0, subtitle1Index);
+          subtitle1Index++;
+          setTimeout(typeChar, 50);
+        } else {
+          // After subtitle1 is typed, move to subtitle2
+          animationStage = 3;
+          setTimeout(typeSubtitle2Char, 500);
+        }
+      }
+  
+      // Make subtitle1 visible before typing
+      typedSubtitle1.style.opacity = 1;
+      typeChar();
+    }
+  
+    function typeSubtitle2Char() {
+      let subtitle2Index = 0;
+  
+      function typeChar() {
+        if (subtitle2Index <= subtitle2Text.length) {
+          typedSubtitle2.textContent = subtitle2Text.slice(0, subtitle2Index);
+          subtitle2Index++;
+          setTimeout(typeChar, 40);
+        } else {
+          // After subtitle2 is typed, show the button
+          animationStage = 4;
+          setTimeout(showButton, 500);
+        }
+      }
+  
+      // Make subtitle2 visible before typing
+      typedSubtitle2.style.opacity = 1;
+      typeChar();
+    }
+  
+    function showButton() {
+      viewWorkBtn.classList.add('visible');
+      
+      // Continue with greeting rotation
+      setTimeout(() => {
+        langIndex = (langIndex + 1) % howdyLanguages.length;
+        typedHw.textContent = ""; // clear Howdy for next language
+        typeHero();
+      }, 2000);
+    }
+  
+    typeHowdyChar();
+  }
+  
+  // Start the typing animation
+  typeHero();
 }
 
 /**
@@ -282,7 +391,7 @@ function initWorkTabs() {
 }
 
 /**
- * "More" buttons functionality with toggle text
+ * "More" buttons functionality with toggle text and slide-up animation
  */
 function initMoreButtons() {
   const moreButtons = document.querySelectorAll('.more-btn');
@@ -298,21 +407,25 @@ function initMoreButtons() {
       const hiddenItems = document.querySelectorAll(`.${type}-content .hidden-item`);
       
       if (hiddenItems.length > 0 && !isExpanded) {
-        // Show all hidden items
-        hiddenItems.forEach(item => {
-          item.classList.remove('hidden-item');
-          item.classList.add('show-item');
+        // Show all hidden items with slide-up animation
+        hiddenItems.forEach((item, index) => {
+          setTimeout(() => {
+            item.classList.remove('hidden-item');
+            item.classList.add('show-item');
+          }, index * 100); // Stagger the animations
         });
         
         // Change button text
         this.textContent = lessText;
         isExpanded = true;
       } else {
-        // Hide items beyond the first 6
+        // Hide items with slide-down animation
         const allItems = document.querySelectorAll(`.${type}-content .project, .${type}-content .bento-item`);
         for (let i = 6; i < allItems.length; i++) {
-          allItems[i].classList.remove('show-item');
-          allItems[i].classList.add('hidden-item');
+          setTimeout(() => {
+            allItems[i].classList.remove('show-item');
+            allItems[i].classList.add('hidden-item');
+          }, (allItems.length - i - 1) * 100); // Reverse stagger for hide animation
         }
         
         // Change button text back
@@ -468,7 +581,7 @@ if (typeof module !== 'undefined' && module.exports) {
     initHeaderScroll,
     initSmoothScrolling,
     initVideoModal,
-    initHeroAnimation,
+    initTypedAnimation,
     initMobileMenu,
     initWorkTabs,
     initMoreButtons,

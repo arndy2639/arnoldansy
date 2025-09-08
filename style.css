@@ -290,6 +290,7 @@ body {
 .nav-right { 
   display: flex; 
   align-items: center; 
+  gap: 0.5rem;
 }
 
 .nav-right li a { 
@@ -375,6 +376,11 @@ body {
 .mobile-social a { 
   font-size: 1.5rem; 
   color: var(--text);
+  transition: color 0.3s;
+}
+
+.mobile-social a:hover {
+  color: var(--accent);
 }
 
 /* Mobile menu overlay */
@@ -461,8 +467,8 @@ body {
   margin-left: 0.3rem;
 }
 
-/* Hero text fade in animation */
-.hero-text-line {
+/* Subtitle - Always white */
+.subline {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-weight: 400;
   letter-spacing: -0.3px;
@@ -474,28 +480,15 @@ body {
   padding: 3px 0;
   margin: 3px 0;
   line-height: 1.1;
-  transform: translateY(20px);
-  transition: opacity 1s ease, transform 1s ease;
 }
 
-.hero-text-line.fade-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.hero-title .hero-text-line {
-  font-weight: 700;
-  font-size: clamp(2.5rem, 8vw, 5rem);
-  letter-spacing: 0.5px;
-}
-
-.hero-text-line:nth-child(2) {
+#typed-subtitle1 {
   font-weight: 300;
   font-size: clamp(1.5rem, 4vw, 2.5rem);
   letter-spacing: -0.5px;
 }
 
-.hero-text-line:nth-child(3) {
+#typed-subtitle2 {
   font-weight: 400;
   font-size: clamp(1rem, 2.5vw, 1.5rem);
 }
@@ -541,7 +534,7 @@ body {
 
 .light-theme .glass-btn {
   background: rgba(0, 0, 0, 0.1);
-  color: #000; /* Black text in light mode for buttons */
+  color: #fff; /* White text in light mode for buttons */
 }
 
 .glass-btn.visible {
@@ -557,7 +550,7 @@ body {
 
 .light-theme .glass-btn:hover {
   background: rgba(0, 0, 0, 0.2);
-  color: #000; /* Keep black text on hover in light mode */
+  color: #fff; /* Keep white text on hover in light mode */
 }
 
 .glass-btn:active { 
@@ -593,14 +586,14 @@ body {
   }
 }
 
-@keyframes slideInFromRight {
+@keyframes slideInFromBottom {
   0% {
     opacity: 0;
-    transform: translateX(30px);
+    transform: translateY(30px);
   }
   100% {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
 }
 
@@ -712,11 +705,13 @@ section {
 
 .project.hidden-item {
   display: none;
+  opacity: 0;
+  transform: translateY(30px);
 }
 
 .project.show-item {
   display: block;
-  animation: slideInFromRight 0.7s ease-out;
+  animation: slideInFromBottom 0.7s ease-out forwards;
 }
 
 .project img { 
@@ -791,7 +786,7 @@ section {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 60px;
+    width: 60px;
   height: 60px;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
@@ -856,11 +851,13 @@ section {
 
 .bento-item.hidden-item {
   display: none;
+  opacity: 0;
+  transform: translateY(30px);
 }
 
 .bento-item.show-item {
   display: block;
-  animation: slideInFromRight 0.7s ease-out;
+  animation: slideInFromBottom 0.7s ease-out forwards;
 }
 
 .bento-item img { 
@@ -1337,7 +1334,7 @@ footer {
   border-radius: var(--radius);
   backdrop-filter: blur(18px) saturate(160%);
   -webkit-backdrop-filter: blur(18px) saturate(160%);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px of rgba(255, 255, 255, 0.08);
   overflow: hidden;
   transition: var(--transition);
 }
@@ -1557,7 +1554,7 @@ textarea:focus {
 /* Global glow elements for the entire page */
 .glow-circle {
   position: fixed;
-  border-radius: 50%;
+   border-radius: 50%;
   background: rgba(255, 136, 0, 0.15);
   filter: blur(60px);
   z-index: -1;
