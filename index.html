@@ -124,9 +124,9 @@
       <div class="bg-glow glow-left"></div>
       <div class="bg-glow glow-right"></div>
 
-      <div class="desktop">
+      <div class="desktop" id="draggable-container">
         <!-- About Me -->
-        <div class="card" id="about-me">
+        <div class="card draggable" id="about-me" draggable="true">
           <div class="card-header">
             <div class="traffic-dots">
               <span class="dot red"></span>
@@ -144,7 +144,7 @@
         </div>
 
         <!-- Where I Work -->
-        <div class="card compact" id="where-i-work">
+        <div class="card compact draggable" id="where-i-work" draggable="true">
           <div class="card-header">
             <div class="traffic-dots">
               <span class="dot red"></span>
@@ -162,7 +162,7 @@
         </div>
 
         <!-- Me Online -->
-        <div class="card compact" id="me-online">
+        <div class="card compact draggable" id="me-online" draggable="true">
           <div class="card-header">
             <div class="traffic-dots">
               <span class="dot red"></span>
@@ -182,7 +182,7 @@
         </div>
 
         <!-- Portrait -->
-        <div class="card" id="portrait">
+        <div class="card draggable" id="portrait" draggable="true">
           <div class="portrait-box">
             <img src="Bento/Profile.jpg" alt="Arnold Nzyoka - Motion Designer" width="300" height="300" loading="lazy">
           </div>
@@ -204,253 +204,291 @@
 
         <!-- Projects Content -->
         <div class="work-content active" id="projects-content">
-          <div class="projects-grid">
-            <!-- Project 1 -->
-            <div class="project video-project">
-              <img src="Images/Luxury Loyue Perfume.jpg" alt="Luxury Foyer Animation - 3D motion design project" class="video-poster" width="500" height="281" loading="lazy">
-              <video class="portfolio-video" preload="metadata" muted playsinline poster="project1-poster.jpg">
-                <source src="Images/Luxury Loyue Perfume.mp4" type="video/mp4">
-                <source src="project1.webm" type="video/webm">
-              </video>
-              <div class="play-button"></div>
-              <div class="overlay">
-                <h3>Luxury Foyer Animation</h3>
-                <p>3D Motion Design / Video Editing</p>
+          <div class="projects-scroll-container">
+            <div class="projects-grid">
+              <!-- Project 1 -->
+              <div class="project video-project">
+                <img src="Images/Luxury Loyue Perfume.jpg" alt="Luxury Foyer Animation - 3D motion design project" class="video-poster" width="500" height="281" loading="lazy">
+                <video class="portfolio-video" preload="metadata" muted playsinline poster="project1-poster.jpg">
+                  <source src="Images/Luxury Loyue Perfume.mp4" type="video/mp4">
+                  <source src="project1.webm" type="video/webm">
+                </video>
+                <div class="play-button"></div>
+                <div class="overlay">
+                  <h3>Luxury Foyer Animation</h3>
+                  <p>3D Motion Design / Video Editing</p>
+                </div>
               </div>
-            </div>
 
-            <!-- Project 2 -->
-            <div class="project video-project">
-              <img src="Images/Ice Cream Pack Reveal.jpg" alt="Brand Promo Video - Visual storytelling project" class="video-poster" width="500" height="281" loading="lazy">
-              <video class="portfolio-video" preload="metadata" muted playsinline poster="project2-poster.jpg">
-                <source src="Images/Ice Cream Pack Reveal.mp4" type="video/mp4">
-                <source src="project2.webm" type="video/webm">
-              </video>
-              <div class="play-button"></div>
-              <div class="overlay">
-                <h3>Brand Promo Video</h3>
-                <p>Visual Storytelling / Motion Graphics</p>
+              <!-- Project 2 -->
+              <div class="project video-project">
+                <img src="Images/Ice Cream Pack Reveal.jpg" alt="Brand Promo Video - Visual storytelling project" class="video-poster" width="500" height="281" loading="lazy">
+                <video class="portfolio-video" preload="metadata" muted playsinline poster="project2-poster.jpg">
+                  <source src="Images/Ice Cream Pack Reveal.mp4" type="video/mp4">
+                  <source src="project2.webm" type="video/webm">
+                </video>
+                <div class="play-button"></div>
+                <div class="overlay">
+                  <h3>Brand Promo Video</h3>
+                  <p>Visual Storytelling / Motion Graphics</p>
+                </div>
               </div>
-            </div>
 
-            <!-- Project 3 -->
-            <div class="project video-project">
-              <img src="Images/Tusker CGI_1.jpg" alt="3D Motion Graphics - Animation and branding project" class="video-poster" width="500" height="281" loading="lazy">
-              <video class="portfolio-video" preload="metadata" muted playsinline poster="project3-poster.jpg">
-                <source src="Images/Tusker CGI_1.mp4" type="video/mp4">
-                <source src="project3.webm" type="video/webm">
-              </video>
-              <div class="play-button"></div>
-              <div class="overlay">
-                <h3>3D Motion Graphics</h3>
-                <p>Animation / Branding</p>
+              <!-- Project 3 -->
+              <div class="project video-project">
+                <img src="Images/Tusker CGI_1.jpg" alt="3D Motion Graphics - Animation and branding project" class="video-poster" width="500" height="281" loading="lazy">
+                <video class="portfolio-video" preload="metadata" muted playsinline poster="project3-poster.jpg">
+                  <source src="Images/Tusker CGI_1.mp4" type="video/mp4">
+                  <source src="project3.webm" type="video/webm">
+                </video>
+                <div class="play-button"></div>
+                <div class="overlay">
+                  <h3>3D Motion Graphics</h3>
+                  <p>Animation / Branding</p>
+                </div>
               </div>
-            </div>
 
-            <!-- Project 4 -->
-            <div class="project video-project">
-              <img src="Images/BluePrint.jpg" alt="Social Media Campaign - Motion and video content" class="video-poster" width="500" height="281" loading="lazy">
-              <video class="portfolio-video" preload="metadata" muted playsinline poster="project4-poster.jpg">
-                <source src="Images/BluePrint.mp4" type="video/mp4">
-                <source src="project4.webm" type="video/webm">
-              </video>
-              <div class="play-button"></div>
-              <div class="overlay">
-                <h3>Social Media Campaign</h3>
-                <p>Motion & Video Content</p>
+              <!-- Project 4 -->
+              <div class="project video-project">
+                <img src="Images/BluePrint.jpg" alt="Social Media Campaign - Motion and video content" class="video-poster" width="500" height="281" loading="lazy">
+                <video class="portfolio-video" preload="metadata" muted playsinline poster="project4-poster.jpg">
+                  <source src="Images/BluePrint.mp4" type="video/mp4">
+                  <source src="project4.webm" type="video/webm">
+                </video>
+                <div class="play-button"></div>
+                <div class="overlay">
+                  <h3>Social Media Campaign</h3>
+                  <p>Motion & Video Content</p>
+                </div>
               </div>
-            </div>
 
-            <!-- Project 5 -->
-            <div class="project video-project">
-              <img src="Images/project5.jpg" alt="Product Showcase - 3D product animation" class="video-poster" width="500" height="281" loading="lazy">
-              <video class="portfolio-video" preload="metadata" muted playsinline poster="project5-poster.jpg">
-                <source src="Images/project5.mp4" type="video/mp4">
-                <source src="project5.webm" type="video/webm">
-              </video>
-              <div class="play-button"></div>
-              <div class="overlay">
-                <h3>Product Showcase</h3>
-                <p>3D Product Animation</p>
+              <!-- Project 5 -->
+              <div class="project video-project">
+                <img src="Images/project5.jpg" alt="Product Showcase - 3D product animation" class="video-poster" width="500" height="281" loading="lazy">
+                <video class="portfolio-video" preload="metadata" muted playsinline poster="project5-poster.jpg">
+                  <source src="Images/project5.mp4" type="video/mp4">
+                  <source src="project5.webm" type="video/webm">
+                </video>
+                <div class="play-button"></div>
+                <div class="overlay">
+                  <h3>Product Showcase</h3>
+                  <p>3D Product Animation</p>
+                </div>
               </div>
-            </div>
 
-            <!-- Project 6 -->
-            <div class="project video-project">
-              <img src="Images/project6.jpg" alt="Brand Identity - Motion graphics for brand" class="video-poster" width="500" height="281" loading="lazy">
-              <video class="portfolio-video" preload="metadata" muted playsinline poster="project6-poster.jpg">
-                <source src="Images/project6.mp4" type="video/mp4">
-                <source src="project6.webm" type="video/webm">
-              </video>
-              <div class="play-button"></div>
-              <div class="overlay">
-                <h3>Brand Identity</h3>
-                <p>Motion Graphics / Branding</p>
+              <!-- Project 6 -->
+              <div class="project video-project">
+                <img src="Images/project6.jpg" alt="Brand Identity - Motion graphics for brand" class="video-poster" width="500" height="281" loading="lazy">
+                <video class="portfolio-video" preload="metadata" muted playsinline poster="project6-poster.jpg">
+                  <source src="Images/project6.mp4" type="video/mp4">
+                  <source src="project6.webm" type="video/webm">
+                </video>
+                <div class="play-button"></div>
+                <div class="overlay">
+                  <h3>Brand Identity</h3>
+                  <p>Motion Graphics / Branding</p>
+                </div>
               </div>
-            </div>
 
-            <!-- Additional projects (hidden initially) -->
-            <!-- Project 7 -->
-            <div class="project video-project hidden-item">
-              <img src="Images/project7.jpg" alt="Character Animation - Animated character storytelling" class="video-poster" width="500" height="281" loading="lazy">
-              <video class="portfolio-video" preload="metadata" muted playsinline poster="project7-poster.jpg">
-                <source src="Images/project7.mp4" type="video/mp4">
-                <source src="project7.webm" type="video/webm">
-              </video>
-              <div class="play-button"></div>
-              <div class="overlay">
-                <h3>Character Animation</h3>
-                <p>2D Animation / Storytelling</p>
+              <!-- Project 7 -->
+              <div class="project video-project">
+                <img src="Images/project7.jpg" alt="Character Animation - Animated character storytelling" class="video-poster" width="500" height="281" loading="lazy">
+                <video class="portfolio-video" preload="metadata" muted playsinline poster="project7-poster.jpg">
+                  <source src="Images/project7.mp4" type="video/mp4">
+                  <source src="project7.webm" type="video/webm">
+                </video>
+                <div class="play-button"></div>
+                <div class="overlay">
+                  <h3>Character Animation</h3>
+                  <p>2D Animation / Storytelling</p>
+                </div>
               </div>
-            </div>
 
-            <!-- Project 8 -->
-            <div class="project video-project hidden-item">
-              <img src="Images/project8.jpg" alt="Architectural Visualization - 3D architectural animation" class="video-poster" width="500" height="281" loading="lazy">
-              <video class="portfolio-video" preload="metadata" muted playsinline poster="project8-poster.jpg">
-                <source src="Images/project8.mp4" type="video/mp4">
-                <source src="project8.webm" type="video/webm">
-              </video>
-              <div class="play-button"></div>
-              <div class="overlay">
-                <h3>Architectural Visualization</h3>
-                <p>3D Architectural Animation</p>
+              <!-- Project 8 -->
+              <div class="project video-project">
+                <img src="Images/project8.jpg" alt="Architectural Visualization - 3D architectural animation" class="video-poster" width="500" height="281" loading="lazy">
+                <video class="portfolio-video" preload="metadata" muted playsinline poster="project8-poster.jpg">
+                  <source src="Images/project8.mp4" type="video/mp4">
+                  <source src="project8.webm" type="video/webm">
+                </video>
+                <div class="play-button"></div>
+                <div class="overlay">
+                  <h3>Architectural Visualization</h3>
+                  <p>3D Architectural Animation</p>
+                </div>
               </div>
-            </div>
 
-            <!-- Project 9 -->
-            <div class="project video-project hidden-item">
-              <img src="Images/project9.jpg" alt="Event Promo - Event promotion animation" class="video-poster" width="500" height="281" loading="lazy">
-              <video class="portfolio-video" preload="metadata" muted playsinline poster="project9-poster.jpg">
-                <source src="Images/project9.mp4" type="video/mp4">
-                <source src="project9.webm" type="video/webm">
-              </video>
-              <div class="play-button"></div>
-              <div class="overlay">
-                <h3>Event Promo</h3>
-                <p>Promotional Animation</p>
+              <!-- Project 9 -->
+              <div class="project video-project">
+                <img src="Images/project9.jpg" alt="Event Promo - Event promotion animation" class="video-poster" width="500" height="281" loading="lazy">
+                <video class="portfolio-video" preload="metadata" muted playsinline poster="project9-poster.jpg">
+                  <source src="Images/project9.mp4" type="video/mp4">
+                  <source src="project9.webm" type="video/webm">
+                </video>
+                <div class="play-button"></div>
+                <div class="overlay">
+                  <h3>Event Promo</h3>
+                  <p>Promotional Animation</p>
+                </div>
               </div>
-            </div>
 
-            <!-- Project 10 -->
-            <div class="project video-project hidden-item">
-              <img src="Images/project10.jpg" alt="Title Sequence - Film title sequence design" class="video-poster" width="500" height="281" loading="lazy">
-              <video class="portfolio-video" preload="metadata" muted playsinline poster="project10-poster.jpg">
-                <source src="Images/project10.mp4" type="video/mp4">
-                <source src="project10.webm" type="video/webm">
-              </video>
-              <div class="play-button"></div>
-              <div class="overlay">
-                <h3>Title Sequence</h3>
-                <p>Film Title Design</p>
+              <!-- Project 10 -->
+              <div class="project video-project">
+                <img src="Images/project10.jpg" alt="Title Sequence - Film title sequence design" class="video-poster" width="500" height="281" loading="lazy">
+                <video class="portfolio-video" preload="metadata" muted playsinline poster="project10-poster.jpg">
+                  <source src="Images/project10.mp4" type="video/mp4">
+                  <source src="project10.webm" type="video/webm">
+                </video>
+                <div class="play-button"></div>
+                <div class="overlay">
+                  <h3>Title Sequence</h3>
+                  <p>Film Title Design</p>
+                </div>
+              </div>
+
+              <!-- Project 11 -->
+              <div class="project video-project">
+                <img src="Images/project11.jpg" alt="Additional Project - Motion design showcase" class="video-poster" width="500" height="281" loading="lazy">
+                <video class="portfolio-video" preload="metadata" muted playsinline poster="project11-poster.jpg">
+                  <source src="Images/project11.mp4" type="video/mp4">
+                  <source src="project11.webm" type="video/webm">
+                </video>
+                <div class="play-button"></div>
+                <div class="overlay">
+                  <h3>Additional Project</h3>
+                  <p>Motion Design Showcase</p>
+                </div>
+              </div>
+
+              <!-- Project 12 -->
+              <div class="project video-project">
+                <img src="Images/project12.jpg" alt="Additional Project - Motion design showcase" class="video-poster" width="500" height="281" loading="lazy">
+                <video class="portfolio-video" preload="metadata" muted playsinline poster="project12-poster.jpg">
+                  <source src="Images/project12.mp4" type="video/mp4">
+                  <source src="project12.webm" type="video/webm">
+                </video>
+                <div class="play-button"></div>
+                <div class="overlay">
+                  <h3>Additional Project</h3>
+                  <p>Motion Design Showcase</p>
+                </div>
               </div>
             </div>
-          </div>
-          
-          <!-- More button for projects -->
-          <div class="more-button-container">
-            <button class="glass-btn more-btn" data-type="projects">View More Projects</button>
           </div>
         </div>
 
         <!-- Bentos Content -->
         <div class="work-content" id="bentos-content">
-          <div class="bentos-grid">
-            <!-- Bento 1 -->
-            <div class="bento-item">
-              <img src="Bento/Bento-1.jpg" alt="Minimalist Bento - Clean and modern design" width="400" height="300" loading="lazy">
-              <div class="bento-overlay">
-                <h3>Minimalist Bento</h3>
-                <p>Clean & Modern Design</p>
+          <div class="bentos-scroll-container">
+            <div class="bentos-grid">
+              <!-- Bento 1 -->
+              <div class="bento-item">
+                <img src="Bento/Bento-1.jpg" alt="Minimalist Bento - Clean and modern design" width="400" height="300" loading="lazy">
+                <div class="bento-overlay">
+                  <h3>Minimalist Bento</h3>
+                  <p>Clean & Modern Design</p>
+                </div>
+              </div>
+              
+              <!-- Bento 2 -->
+              <div class="bento-item">
+                <img src="Bento/Bento-2.jpg" alt="Geometric Bento - Structured layout design" width="400" height="300" loading="lazy">
+                <div class="bento-overlay">
+                  <h3>Geometric Bento</h3>
+                  <p>Structured Layout</p>
+                </div>
+              </div>
+              
+              <!-- Bento 3 -->
+              <div class="bento-item">
+                <img src="Bento/Bento-3.jpg" alt="Organic Bento - Fluid and natural design" width="400" height="300" loading="lazy">
+                <div class="bento-overlay">
+                  <h3>Organic Bento</h3>
+                  <p>Fluid & Natural Design</p>
+                </div>
+              </div>
+              
+              <!-- Bento 4 -->
+              <div class="bento-item">
+                <img src="Bento/Bento-4.jpg" alt="Abstract Bento - Creative expression design" width="400" height="300" loading="lazy">
+                <div class="bento-overlay">
+                  <h3>Abstract Bento</h3>
+                  <p>Creative Expression</p>
+                </div>
+              </div>
+              
+              <!-- Bento 5 -->
+              <div class="bento-item">
+                <img src="Bento/Bento-5.jpg" alt="Colorful Bento - Vibrant color design" width="400" height="300" loading="lazy">
+                <div class="bento-overlay">
+                  <h3>Colorful Bento</h3>
+                  <p>Vibrant Color Design</p>
+                </div>
+              </div>
+              
+              <!-- Bento 6 -->
+              <div class="bento-item">
+                <img src="Bento/Bento-6.jpg" alt="Typography Bento - Text-focused design" width="400" height="300" loading="lazy">
+                <div class="bento-overlay">
+                  <h3>Typography Bento</h3>
+                  <p>Text-Focused Design</p>
+                </div>
+              </div>
+              
+              <!-- Bento 7 -->
+              <div class="bento-item">
+                <img src="Bento/Bento-7.jpg" alt="Pattern Bento - Repetitive pattern design" width="400" height="300" loading="lazy">
+                <div class="bento-overlay">
+                  <h3>Pattern Bento</h3>
+                  <p>Repetitive Pattern Design</p>
+                </div>
+              </div>
+              
+              <!-- Bento 8 -->
+              <div class="bento-item">
+                <img src="Bento/Bento-8.jpg" alt="Gradient Bento - Smooth gradient transitions" width="400" height="300" loading="lazy">
+                <div class="bento-overlay">
+                  <h3>Gradient Bento</h3>
+                  <p>Smooth Gradient Transitions</p>
+                </div>
+              </div>
+              
+              <!-- Bento 9 -->
+              <div class="bento-item">
+                <img src="Bento/Bento-9.jpg" alt="Asymmetrical Bento - Balanced asymmetry design" width="400" height="300" loading="lazy">
+                <div class="bento-overlay">
+                  <h3>Asymmetrical Bento</h3>
+                  <p>Balanced Asymmetry Design</p>
+                </div>
+              </div>
+              
+              <!-- Bento 10 -->
+              <div class="bento-item">
+                <img src="Bento/Bento-10.jpg" alt="Minimalist Bento II - Simplified design approach" width="400" height="300" loading="lazy">
+                <div class="bento-overlay">
+                  <h3>Minimalist Bento II</h3>
+                  <p>Simplified Design Approach</p>
+                </div>
+              </div>
+              
+              <!-- Bento 11 -->
+              <div class="bento-item">
+                <img src="Bento/Bento-11.jpg" alt="Additional Bento - Creative design showcase" width="400" height="300" loading="lazy">
+                <div class="bento-overlay">
+                  <h3>Additional Bento</h3>
+                  <p>Creative Design Showcase</p>
+                </div>
+              </div>
+              
+              <!-- Bento 12 -->
+              <div class="bento-item">
+                <img src="Bento/Bento-12.jpg" alt="Additional Bento - Creative design showcase" width="400" height="300" loading="lazy">
+                <div class="bento-overlay">
+                  <h3>Additional Bento</h3>
+                  <p>Creative Design Showcase</p>
+                </div>
               </div>
             </div>
-            
-            <!-- Bento 2 -->
-            <div class="bento-item">
-              <img src="Bento/Bento-2.jpg" alt="Geometric Bento - Structured layout design" width="400" height="300" loading="lazy">
-              <div class="bento-overlay">
-                <h3>Geometric Bento</h3>
-                <p>Structured Layout</p>
-              </div>
-            </div>
-            
-            <!-- Bento 3 -->
-            <div class="bento-item">
-              <img src="Bento/Bento-3.jpg" alt="Organic Bento - Fluid and natural design" width="400" height="300" loading="lazy">
-              <div class="bento-overlay">
-                <h3>Organic Bento</h3>
-                <p>Fluid & Natural Design</p>
-              </div>
-            </div>
-            
-            <!-- Bento 4 -->
-            <div class="bento-item">
-              <img src="Bento/Bento-4.jpg" alt="Abstract Bento - Creative expression design" width="400" height="300" loading="lazy">
-              <div class="bento-overlay">
-                <h3>Abstract Bento</h3>
-                <p>Creative Expression</p>
-              </div>
-            </div>
-            
-            <!-- Bento 5 -->
-            <div class="bento-item">
-              <img src="Bento/Bento-5.jpg" alt="Colorful Bento - Vibrant color design" width="400" height="300" loading="lazy">
-              <div class="bento-overlay">
-                <h3>Colorful Bento</h3>
-                <p>Vibrant Color Design</p>
-              </div>
-            </div>
-            
-            <!-- Bento 6 -->
-            <div class="bento-item">
-              <img src="Bento/Bento-6.jpg" alt="Typography Bento - Text-focused design" width="400" height="300" loading="lazy">
-              <div class="bento-overlay">
-                <h3>Typography Bento</h3>
-                <p>Text-Focused Design</p>
-              </div>
-            </div>
-            
-            <!-- Additional bentos (hidden initially) -->
-            <!-- Bento 7 -->
-            <div class="bento-item hidden-item">
-              <img src="Bento/Bento-7.jpg" alt="Pattern Bento - Repetitive pattern design" width="400" height="300" loading="lazy">
-              <div class="bento-overlay">
-                <h3>Pattern Bento</h3>
-                <p>Repetitive Pattern Design</p>
-              </div>
-            </div>
-            
-            <!-- Bento 8 -->
-            <div class="bento-item hidden-item">
-              <img src="Bento/Bento-8.jpg" alt="Gradient Bento - Smooth gradient transitions" width="400" height="300" loading="lazy">
-              <div class="bento-overlay">
-                <h3>Gradient Bento</h3>
-                <p>Smooth Gradient Transitions</p>
-              </div>
-            </div>
-            
-            <!-- Bento 9 -->
-            <div class="bento-item hidden-item">
-              <img src="Bento/Bento-9.jpg" alt="Asymmetrical Bento - Balanced asymmetry design" width="400" height="300" loading="lazy">
-              <div class="bento-overlay">
-                <h3>Asymmetrical Bento</h3>
-                <p>Balanced Asymmetry Design</p>
-              </div>
-            </div>
-            
-            <!-- Bento 10 -->
-            <div class="bento-item hidden-item">
-              <img src="Bento/Bento-10.jpg" alt="Minimalist Bento II - Simplified design approach" width="400" height="300" loading="lazy">
-              <div class="bento-overlay">
-                <h3>Minimalist Bento II</h3>
-                <p>Simplified Design Approach</p>
-              </div>
-            </div>
-          </div>
-          
-          <!-- More button for bentos -->
-          <div class="more-button-container">
-            <button class="glass-btn more-btn" data-type="bentos">View More Bentos</button>
           </div>
         </div>
 

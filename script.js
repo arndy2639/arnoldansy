@@ -38,14 +38,14 @@ function initWebsite() {
   // Lazy load images with Intersection Observer
   initLazyLoading();
   
-  // Initialize "More" buttons functionality
-  initMoreButtons();
-  
   // Initialize theme toggle
   initThemeToggle();
   
   // Initialize quote toggle
   initQuoteToggle();
+  
+  // Initialize drag and drop for about section
+  initDragAndDrop();
 }
 
 /**
@@ -55,7 +55,6 @@ function initHeaderScroll() {
   const header = document.querySelector('.header-bar');
   if (!header) return;
   
-  let lastScrollY = window.scrollY;
   const scrollThreshold = 50;
   
   const handleScroll = () => {
@@ -64,8 +63,6 @@ function initHeaderScroll() {
     } else {
       header.classList.remove('shrink');
     }
-    
-    lastScrollY = window.scrollY;
   };
   
   // Use requestAnimationFrame for smoother scrolling performance
@@ -185,7 +182,7 @@ function initVideoModal() {
 }
 
 /**
- * Typed Hero Text Animation
+ * Typed Hero Text Animation with word-by-word fade-in
  */
 function initTypedAnimation() {
   const typedHw = document.getElementById('typed-hw');
@@ -262,54 +259,74 @@ function initTypedAnimation() {
     }
   
     function typeSubtitle1Char() {
-      let subtitle1Index = 0;
-  
-      function typeChar() {
-        if (subtitle1Index <= subtitle1Text.length) {
-          typedSubtitle1.textContent = subtitle1Text.slice(0, subtitle1Index);
-          subtitle1Index++;
-          setTimeout(typeChar, 50);
+      // Make subtitle1 visible before typing
+      typedSubtitle1.style.opacity = 1;
+      
+      // Split the subtitle into words for word-by-word animation
+      const words = subtitle1Text.split(' ');
+      let wordIndex = 0;
+      
+      function typeWordByWord() {
+        if (wordIndex < words.length) {
+          // Add each word with a span for individual animation
+          const wordSpan = document.createElement('span');
+          wordSpan.textContent = words[wordIndex] + ' ';
+          wordSpan.style.opacity = '0';
+          wordSpan.style.animation = 'wordByWord 0.5s ease forwards';
+          wordSpan.style.animationDelay = (wordIndex * 0.1) + 's';
+          typedSubtitle1.appendChild(wordSpan);
+          
+          wordIndex++;
+          setTimeout(typeWordByWord, 100);
         } else {
           // After subtitle1 is typed, move to subtitle2
           animationStage = 3;
           setTimeout(typeSubtitle2Char, 500);
         }
       }
-  
-      // Make subtitle1 visible before typing
-      typedSubtitle1.style.opacity = 1;
-      typeChar();
+      
+      // Clear any existing content
+      typedSubtitle1.textContent = '';
+      typeWordByWord();
     }
   
     function typeSubtitle2Char() {
-      let subtitle2Index = 0;
-  
-      function typeChar() {
-        if (subtitle2Index <= subtitle2Text.length) {
-          typedSubtitle2.textContent = subtitle2Text.slice(0, subtitle2Index);
-          subtitle2Index++;
-          setTimeout(typeChar, 40);
+      // Make subtitle2 visible before typing
+      typedSubtitle2.style.opacity = 1;
+      
+      // Split the subtitle into words for word-by-word animation
+      const words = subtitle2Text.split(' ');
+      let wordIndex = 0;
+      
+      function typeWordByWord() {
+        if (wordIndex < words.length) {
+          // Add each word with a span for individual animation
+          const wordSpan = document.createElement('span');
+          wordSpan.textContent = words[wordIndex] + ' ';
+          wordSpan.style.opacity = '0';
+          wordSpan.style.animation = 'wordByWord 0.5s ease forwards';
+          wordSpan.style.animationDelay = (wordIndex * 0.1) + 's';
+          typedSubtitle2.appendChild(wordSpan);
+          
+          wordIndex++;
+          setTimeout(typeWordByWord, 100);
         } else {
           // After subtitle2 is typed, show the button
           animationStage = 4;
           setTimeout(showButton, 500);
         }
       }
-  
-      // Make subtitle2 visible before typing
-      typedSubtitle2.style.opacity = 1;
-      typeChar();
+      
+      // Clear any existing content
+      typedSubtitle2.textContent = '';
+      typeWordByWord();
     }
   
     function showButton() {
       viewWorkBtn.classList.add('visible');
       
-      // Continue with greeting rotation
-      setTimeout(() => {
-        langIndex = (langIndex + 1) % howdyLanguages.length;
-        typedHw.textContent = ""; // clear Howdy for next language
-        typeHero();
-      }, 2000);
+      // Stop the animation loop after the button is shown
+      // Don't continue with greeting rotation
     }
   
     typeHowdyChar();
@@ -391,55 +408,6 @@ function initWorkTabs() {
 }
 
 /**
- * "More" buttons functionality with toggle text and slide-up animation
- */
-function initMoreButtons() {
-  const moreButtons = document.querySelectorAll('.more-btn');
-  
-  moreButtons.forEach(button => {
-    // Store original text
-    const originalText = button.textContent;
-    const lessText = 'Show Less';
-    let isExpanded = false;
-    
-    button.addEventListener('click', function() {
-      const type = this.getAttribute('data-type');
-      const hiddenItems = document.querySelectorAll(`.${type}-content .hidden-item`);
-      
-      if (hiddenItems.length > 0 && !isExpanded) {
-        // Show all hidden items with slide-up animation
-        hiddenItems.forEach((item, index) => {
-          setTimeout(() => {
-            item.classList.remove('hidden-item');
-            item.classList.add('show-item');
-          }, index * 100); // Stagger the animations
-        });
-        
-        // Change button text
-        this.textContent = lessText;
-        isExpanded = true;
-      } else {
-        // Hide items with slide-down animation
-        const allItems = document.querySelectorAll(`.${type}-content .project, .${type}-content .bento-item`);
-        for (let i = 6; i < allItems.length; i++) {
-          setTimeout(() => {
-            allItems[i].classList.remove('show-item');
-            allItems[i].classList.add('hidden-item');
-          }, (allItems.length - i - 1) * 100); // Reverse stagger for hide animation
-        }
-        
-        // Change button text back
-        this.textContent = originalText;
-        isExpanded = false;
-        
-        // Scroll to section to see the first items
-        document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-  });
-}
-
-/**
  * Theme toggle functionality
  */
 function initThemeToggle() {
@@ -452,13 +420,19 @@ function initThemeToggle() {
   const savedTheme = localStorage.getItem('theme');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   
+  // Set initial theme based on system preference
   if (savedTheme) {
     body.classList.add(savedTheme);
   } else if (prefersDark) {
     body.classList.add('dark-theme');
+    localStorage.setItem('theme', 'dark-theme');
   } else {
     body.classList.add('light-theme');
+    localStorage.setItem('theme', 'light-theme');
   }
+  
+  // Update header bar color based on theme
+  updateHeaderBarColor();
   
   // Toggle theme on button click
   themeToggle.addEventListener('click', () => {
@@ -469,7 +443,26 @@ function initThemeToggle() {
       body.classList.replace('light-theme', 'dark-theme');
       localStorage.setItem('theme', 'dark-theme');
     }
+    
+    // Update header bar color after theme change
+    updateHeaderBarColor();
   });
+}
+
+/**
+ * Update header bar color based on current theme
+ */
+function updateHeaderBarColor() {
+  const headerBar = document.querySelector('.header-bar');
+  const isLightTheme = document.body.classList.contains('light-theme');
+  
+  if (headerBar) {
+    if (isLightTheme) {
+      headerBar.style.background = 'rgba(254, 252, 255, 0.8)';
+    } else {
+      headerBar.style.background = 'rgba(0, 0, 0, 0.5)';
+    }
+  }
 }
 
 /**
@@ -574,6 +567,110 @@ function initLazyLoading() {
   });
 }
 
+/**
+ * Initialize drag and drop functionality for about section
+ */
+function initDragAndDrop() {
+  const draggableContainer = document.getElementById('draggable-container');
+  const draggableItems = document.querySelectorAll('.draggable');
+  
+  if (!draggableContainer || draggableItems.length === 0) return;
+  
+  let draggedItem = null;
+  
+  // Add event listeners for each draggable item
+  draggableItems.forEach(item => {
+    // Drag start event
+    item.addEventListener('dragstart', function(e) {
+      draggedItem = this;
+      setTimeout(() => {
+        this.classList.add('dragging');
+      }, 0);
+    });
+    
+    // Drag end event
+    item.addEventListener('dragend', function() {
+      this.classList.remove('dragging');
+      draggedItem = null;
+      
+      // Save the new layout to localStorage
+      saveLayout();
+    });
+  });
+  
+  // Add event listeners to the container
+  draggableContainer.addEventListener('dragover', function(e) {
+    e.preventDefault();
+    // Add visual indicator for drop target
+    e.dataTransfer.dropEffect = 'move';
+  });
+  
+  draggableContainer.addEventListener('dragenter', function(e) {
+    e.preventDefault();
+  });
+  
+  draggableContainer.addEventListener('drop', function(e) {
+    e.preventDefault();
+    if (draggedItem) {
+      // Get all draggable items
+      const items = Array.from(this.querySelectorAll('.draggable:not(.dragging)'));
+      
+      // Find the item to insert before
+      const nextItem = items.find(item => {
+        const rect = item.getBoundingClientRect();
+        return e.clientY <= rect.top + rect.height / 2;
+      });
+      
+      if (nextItem) {
+        this.insertBefore(draggedItem, nextItem);
+      } else {
+        this.appendChild(draggedItem);
+      }
+    }
+  });
+  
+  // Load saved layout if available
+  loadLayout();
+}
+
+/**
+ * Save the current layout to localStorage
+ */
+function saveLayout() {
+  const draggableContainer = document.getElementById('draggable-container');
+  if (!draggableContainer) return;
+  
+  const items = Array.from(draggableContainer.querySelectorAll('.draggable'));
+  const layout = items.map(item => item.id);
+  
+  localStorage.setItem('aboutLayout', JSON.stringify(layout));
+}
+
+/**
+ * Load the saved layout from localStorage
+ */
+function loadLayout() {
+  const savedLayout = localStorage.getItem('aboutLayout');
+  if (!savedLayout) return;
+  
+  try {
+    const layout = JSON.parse(savedLayout);
+    const draggableContainer = document.getElementById('draggable-container');
+    
+    if (!draggableContainer) return;
+    
+    // Reorder items based on saved layout
+    layout.forEach(id => {
+      const item = document.getElementById(id);
+      if (item) {
+        draggableContainer.appendChild(item);
+      }
+    });
+  } catch (e) {
+    console.error('Error loading layout:', e);
+  }
+}
+
 // Export functions for potential module usage
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
@@ -584,11 +681,11 @@ if (typeof module !== 'undefined' && module.exports) {
     initTypedAnimation,
     initMobileMenu,
     initWorkTabs,
-    initMoreButtons,
     initThemeToggle,
     initQuoteToggle,
     initQuoteForm,
     initVideoErrorHandling,
-    initLazyLoading
+    initLazyLoading,
+    initDragAndDrop
   };
 }
