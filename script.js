@@ -46,6 +46,9 @@ function initWebsite() {
   
   // Initialize drag and drop for about section
   initDragAndDrop();
+  
+  // Initialize horizontal wheel scrolling for projects
+  initHorizontalScroll();
 }
 
 /**
@@ -458,9 +461,9 @@ function updateHeaderBarColor() {
   
   if (headerBar) {
     if (isLightTheme) {
-      headerBar.style.background = 'rgba(254, 252, 255, 0.8)';
+      headerBar.style.background = 'rgba(255, 255, 255, 0.9)';
     } else {
-      headerBar.style.background = 'rgba(0, 0, 0, 0.5)';
+      headerBar.style.background = 'rgba(0, 0, 0, 0.9)';
     }
   }
 }
@@ -671,6 +674,42 @@ function loadLayout() {
   }
 }
 
+/**
+ * Initialize horizontal wheel scrolling for projects
+ */
+function initHorizontalScroll() {
+  const projectsContainer = document.querySelector('.projects-scroll-container');
+  const bentosContainer = document.querySelector('.bentos-scroll-container');
+  
+  if (!projectsContainer && !bentosContainer) return;
+  
+  // Function to handle horizontal scroll with mouse wheel
+  function handleHorizontalScroll(e, container) {
+    // Only apply on desktop
+    if (window.innerWidth < 769) return;
+    
+    // Prevent vertical scrolling
+    e.preventDefault();
+    
+    // Scroll horizontally instead
+    container.scrollLeft += e.deltaY;
+  }
+  
+  // Add event listeners for projects container
+  if (projectsContainer) {
+    projectsContainer.addEventListener('wheel', (e) => {
+      handleHorizontalScroll(e, projectsContainer);
+    }, { passive: false });
+  }
+  
+  // Add event listeners for bentos container
+  if (bentosContainer) {
+    bentosContainer.addEventListener('wheel', (e) => {
+      handleHorizontalScroll(e, bentosContainer);
+    }, { passive: false });
+  }
+}
+
 // Export functions for potential module usage
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
@@ -686,6 +725,7 @@ if (typeof module !== 'undefined' && module.exports) {
     initQuoteForm,
     initVideoErrorHandling,
     initLazyLoading,
-    initDragAndDrop
+    initDragAndDrop,
+    initHorizontalScroll
   };
 }

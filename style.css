@@ -121,7 +121,7 @@ summary {
   --transition: all 0.3s ease;
 }
 
-/* Light theme variables - Updated to milk white #FEFCFF */
+/* Light theme variables */
 .light-theme {
   --bg-1: #FEFCFF;
   --bg-2: #FEFCFF;
@@ -236,12 +236,12 @@ body {
   width: 100%; 
   z-index: 1000; 
   backdrop-filter: blur(15px); 
-  background: rgba(0, 0, 0, 0.5); 
+  background: rgba(0, 0, 0, 0.9); /* Dark mode: black background */
   transition: var(--transition); 
 }
 
 .light-theme .header-bar {
-  background: rgba(254, 252, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9); /* Light mode: white background */
 }
 
 .navbar { 
@@ -534,7 +534,7 @@ body {
 
 .light-theme .glass-btn {
   background: rgba(0, 0, 0, 0.1);
-  color: #000; /* Black text in light mode for buttons */
+  color: #fff; /* White text in light mode for hero button */
 }
 
 /* Get A Quote button in light mode - white text */
@@ -556,7 +556,7 @@ body {
 
 .light-theme .glass-btn:hover {
   background: rgba(0, 0, 0, 0.2);
-  color: #000; /* Keep black text on hover in light mode */
+  color: #fff; /* Keep white text on hover in light mode */
 }
 
 .light-theme #quote-toggle:hover {
@@ -717,6 +717,7 @@ section {
   scrollbar-width: thin;
   scrollbar-color: var(--accent) transparent;
   animation: slideInFromRight 1s ease-out;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 }
 
 .projects-scroll-container::-webkit-scrollbar,
@@ -755,6 +756,21 @@ section {
     grid-template-columns: 1fr;
     gap: 2rem;
     width: 100%;
+  }
+  
+  /* Mobile glassmorphism effect for sidebar */
+  .mobile-menu {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .light-theme .mobile-menu {
+    background: rgba(255, 255, 255, 0.85);
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.05);
   }
 }
 
@@ -1134,6 +1150,15 @@ section {
   gap: 1.5rem;
   font-family: system-ui, -apple-system, sans-serif;
   padding-top: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Dark mode: white outline */
+  border-radius: 15px;
+  padding: 2rem;
+  background: var(--card);
+  backdrop-filter: blur(10px);
+}
+
+.light-theme .quote-form {
+  border: 1px solid rgba(0, 0, 0, 0.5); /* Light mode: black outline */
 }
 
 .quote-form input, 
@@ -1780,7 +1805,7 @@ textarea:focus {
   
   /* Mobile Navigation */
   .nav-left, .nav-right { 
-    display: none; 
+  display: none; 
   }
   
   .mobile-menu-btn { 
