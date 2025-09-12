@@ -211,7 +211,8 @@ function initTypedAnimation() {
   
   let langIndex = 0;
   let animationStage = 0; // 0: Howdy, 1: I'm Arndy, 2: Subtitle1, 3: Subtitle2, 4: Button
-  
+  let isFirstCycle = true;
+
   /**
    * Main typing function
    */
@@ -228,8 +229,17 @@ function initTypedAnimation() {
       } else {
         // After Howdy is typed, move to next animation stage
         if (animationStage === 0) {
-          animationStage = 1;
-          setTimeout(typeArndyChar, 300); // Add space after Howdy
+          if (isFirstCycle) {
+            animationStage = 1;
+            setTimeout(typeArndyChar, 300); // Add space after Howdy
+          } else {
+            // If not first cycle, just continue with next greeting
+            setTimeout(() => {
+              langIndex = (langIndex + 1) % howdyLanguages.length;
+              typedHw.textContent = ""; // clear Howdy for next language
+              typeHero();
+            }, 2000);
+          }
         } else {
           // If all animations are done, just continue with next greeting
           setTimeout(() => {
@@ -327,9 +337,15 @@ function initTypedAnimation() {
   
     function showButton() {
       viewWorkBtn.classList.add('visible');
+      isFirstCycle = false;
       
-      // Stop the animation loop after the button is shown
-      // Don't continue with greeting rotation
+      // After the first complete animation, reset to stage 0 to continue language rotation
+      setTimeout(() => {
+        animationStage = 0;
+        langIndex = (langIndex + 1) % howdyLanguages.length;
+        typedHw.textContent = ""; // clear Howdy for next language
+        typeHero();
+      }, 2000);
     }
   
     typeHowdyChar();
@@ -440,8 +456,8 @@ function initThemeToggle() {
   // Toggle theme on button click
   themeToggle.addEventListener('click', () => {
     if (body.classList.contains('dark-theme')) {
-      body.classList.replace('dark-theme', 'light-theme');
-      localStorage.setItem('theme', 'light-theme');
+    body.classList.replace('dark-theme', 'light-theme');
+    localStorage.setItem('theme', 'light-theme');
     } else {
       body.classList.replace('light-theme', 'dark-theme');
       localStorage.setItem('theme', 'dark-theme');
