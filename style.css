@@ -13,6 +13,8 @@ html {
 body {
   margin: 0;
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  overflow-x: hidden;
+  width: 100%;
 }
 hr {
   height: 0;
@@ -156,6 +158,43 @@ body {
   font-family: system-ui, -apple-system, sans-serif;
   text-rendering: optimizeSpeed;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* WhatsApp Chat Button */
+.whatsapp-chat {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 32px;
+  z-index: 999;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+  transition: var(--transition);
+  animation: pulse 2s infinite;
+}
+
+.whatsapp-chat:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 25px rgba(37, 211, 102, 0.7);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
 }
 
 /* Theme Toggle */
@@ -408,6 +447,7 @@ body {
   justify-content: center; 
   align-items: center; 
   padding-top: 80px; 
+  overflow: hidden;
 }
 
 #hero-video { 
@@ -736,19 +776,30 @@ section {
   border-radius: 20px;
 }
 
-/* Portfolio Grid - Desktop: 2 projects per row with horizontal scroll */
-@media (min-width: 769px) {
+/* Portfolio Grid - Desktop: 3 projects per row with horizontal scroll */
+@media (min-width: 1025px) {
   .projects-grid,
   .bentos-grid { 
     display: grid; 
-    grid-template-columns: repeat(6, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, minmax(320px, 1fr));
     gap: 2rem;
-    width: max-content;
+    width: 100%;
     padding: 0.5rem;
   }
 }
 
-/* Portfolio Grid - Mobile: Keep current layout */
+/* Portfolio Grid - Tablet: 2 projects per row */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .projects-grid,
+  .bentos-grid { 
+    display: grid; 
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 2rem;
+    width: 100%;
+  }
+}
+
+/* Portfolio Grid - Mobile: 1 project per row */
 @media (max-width: 768px) {
   .projects-grid,
   .bentos-grid { 
@@ -916,7 +967,8 @@ section {
   border-left: 20px solid #000;
 }
 
-.project:hover .play-button {
+.project:hover .play-button,
+.bento-item:hover .play-button {
   background: rgba(255, 136, 0, 0.8);
   transform: translate(-50%, -50%) scale(1.1);
 }
@@ -927,7 +979,8 @@ section {
   100% { opacity: 1; transform: scale(1); }
 }
 
-.project .portfolio-video {
+.project .portfolio-video,
+.bento-item .bento-video {
   animation: slowReveal 0.7s ease-out;
 }
 
@@ -1774,7 +1827,7 @@ textarea:focus {
   
   .projects-grid,
   .bentos-grid {
-    grid-template-columns: repeat(6, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
   }
 }
 
@@ -1786,6 +1839,19 @@ textarea:focus {
       "about"
       "where"
       "online";
+    gap: 14px;
+    margin: 24px 16px;
+  }
+}
+
+/* Tablet layout for About section */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .desktop {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "about about"
+      "where portrait"
+      "online portrait";
     gap: 14px;
     margin: 24px 16px;
   }
@@ -1840,7 +1906,7 @@ textarea:focus {
   
   .projects-grid,
   .bentos-grid {
-    grid-template-columns: repeat(4, minmax(250px, 1fr));
+    grid-template-columns: 1fr;
   }
   
   /* Footer */
@@ -1878,6 +1944,33 @@ textarea:focus {
     width: 40px;
     height: 40px;
   }
+  
+  /* Mobile 9:16 aspect ratio fixes */
+  .hero-section {
+    aspect-ratio: 9/16;
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  #hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .hero-overlay-text {
+    padding: 2rem 1rem;
+  }
+  
+  /* Prevent horizontal scrolling on mobile */
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1900,7 +1993,7 @@ textarea:focus {
   /* Portfolio Grid */
   .projects-grid,
   .bentos-grid {
-    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    grid-template-columns: 1fr;
     gap: 1rem;
   }
   
@@ -1928,6 +2021,15 @@ textarea:focus {
   
   .footer-logo span { 
     font-size: 1.2rem; 
+  }
+  
+  /* WhatsApp button size adjustment for mobile */
+  .whatsapp-chat {
+    width: 50px;
+    height: 50px;
+    font-size: 28px;
+    bottom: 20px;
+    right: 20px;
   }
 }
 
@@ -1962,7 +2064,8 @@ textarea:focus {
   .glass-btn,
   .work-tabs,
   .footer-bottom,
-  .theme-toggle {
+  .theme-toggle,
+  .whatsapp-chat {
     display: none !important;
   }
   
@@ -1973,5 +2076,96 @@ textarea:focus {
   
   a[href^="http"]:after {
     content: " (" attr(href) ")";
+  }
+}
+
+/* Mobile layout fixes for 1080x1920 screens */
+@media (max-width: 768px) and (max-height: 1920px) {
+  .hero-section {
+    height: 100vh;
+    min-height: 100vh;
+    padding-top: 60px;
+  }
+  
+  #hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .hero-overlay-text {
+    padding: 1rem;
+    transform: none;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-title .arndy-text {
+    font-size: 2.8rem;
+  }
+  
+  /* Fix horizontal scrolling issues */
+  body, html {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  /* Ensure content doesn't shift */
+  .header-bar {
+    width: 100%;
+    left: 0;
+    right: 0;
+  }
+}
+
+/* Safari-specific fixes */
+@media not all and (min-resolution:.001dpcm) { 
+  @supports (-webkit-appearance:none) {
+    /* Safari specific CSS */
+    .hero-section {
+      height: -webkit-fill-available;
+    }
+    
+    .mobile-menu {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    
+    /* Fix for Safari scroll issues */
+    .projects-scroll-container,
+    .bentos-scroll-container {
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+}
+
+/* About section tablet layout - 2 horizontal + 2 vertical */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .desktop {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "about about"
+      "where portrait"
+      "online portrait";
+  }
+  
+  #about-me {
+    grid-column: 1 / span 2;
+  }
+  
+  #where-i-work, #me-online {
+    height: fit-content;
+  }
+  
+  #portrait {
+    grid-row: 2 / span 2;
   }
 }

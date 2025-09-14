@@ -20,7 +20,7 @@ function initWebsite() {
   // Portfolio video modal
   initVideoModal();
   
-  // Typed hero text animation
+  // Typed hero text animation with language switching
   initTypedAnimation();
   
   // Mobile menu functionality
@@ -49,6 +49,9 @@ function initWebsite() {
   
   // Initialize horizontal wheel scrolling for projects
   initHorizontalScroll();
+  
+  // Initialize WhatsApp chat button
+  initWhatsAppChat();
 }
 
 /**
@@ -131,7 +134,7 @@ function smoothScrollTo(target) {
  * Portfolio Video Modal functionality
  */
 function initVideoModal() {
-  const videoProjects = document.querySelectorAll('.video-project');
+  const videoProjects = document.querySelectorAll('.video-project, .video-bento');
   const modal = document.getElementById('video-modal');
   const modalVideo = document.getElementById('modal-video');
   const closeBtn = document.querySelector('.close-btn');
@@ -161,8 +164,11 @@ function initVideoModal() {
   // Add click event to each video project
   videoProjects.forEach(project => {
     project.addEventListener('click', () => {
-      const videoSrc = project.querySelector('video source').src;
-      openModal(videoSrc);
+      const videoElement = project.querySelector('video');
+      if (videoElement) {
+        const videoSrc = videoElement.querySelector('source').src;
+        openModal(videoSrc);
+      }
     });
   });
   
@@ -185,7 +191,7 @@ function initVideoModal() {
 }
 
 /**
- * Typed Hero Text Animation with word-by-word fade-in
+ * Typed Hero Text Animation with word-by-word fade-in and language switching
  */
 function initTypedAnimation() {
   const typedHw = document.getElementById('typed-hw');
@@ -211,7 +217,7 @@ function initTypedAnimation() {
   
   let langIndex = 0;
   let animationStage = 0; // 0: Howdy, 1: I'm Arndy, 2: Subtitle1, 3: Subtitle2, 4: Button
-  let isFirstCycle = true;
+  let isAnimationComplete = false;
 
   /**
    * Main typing function
@@ -219,7 +225,7 @@ function initTypedAnimation() {
   function typeHero() {
     const currentLang = howdyLanguages[langIndex];
     let hwIndex = 0;
-  
+
     // Type Howdy character by character
     function typeHowdyChar() {
       if (hwIndex <= currentLang.length) {
@@ -229,19 +235,10 @@ function initTypedAnimation() {
       } else {
         // After Howdy is typed, move to next animation stage
         if (animationStage === 0) {
-          if (isFirstCycle) {
-            animationStage = 1;
-            setTimeout(typeArndyChar, 300); // Add space after Howdy
-          } else {
-            // If not first cycle, just continue with next greeting
-            setTimeout(() => {
-              langIndex = (langIndex + 1) % howdyLanguages.length;
-              typedHw.textContent = ""; // clear Howdy for next language
-              typeHero();
-            }, 2000);
-          }
-        } else {
-          // If all animations are done, just continue with next greeting
+          animationStage = 1;
+          setTimeout(typeArndyChar, 300); // Add space after Howdy
+        } else if (!isAnimationComplete) {
+          // If animation is complete, cycle through languages
           setTimeout(() => {
             langIndex = (langIndex + 1) % howdyLanguages.length;
             typedHw.textContent = ""; // clear Howdy for next language
@@ -250,12 +247,12 @@ function initTypedAnimation() {
         }
       }
     }
-  
+
     function typeArndyChar() {
       // Added proper spacing between Howdy and I'm Arndy
       const arndyText = " I'm Arndy";
       let arndyIndex = 0;
-  
+
       function typeChar() {
         if (arndyIndex <= arndyText.length) {
           typedArndy.textContent = arndyText.slice(0, arndyIndex);
@@ -267,10 +264,10 @@ function initTypedAnimation() {
           setTimeout(typeSubtitle1Char, 500);
         }
       }
-  
+
       typeChar();
     }
-  
+
     function typeSubtitle1Char() {
       // Make subtitle1 visible before typing
       typedSubtitle1.style.opacity = 1;
@@ -302,7 +299,7 @@ function initTypedAnimation() {
       typedSubtitle1.textContent = '';
       typeWordByWord();
     }
-  
+
     function typeSubtitle2Char() {
       // Make subtitle2 visible before typing
       typedSubtitle2.style.opacity = 1;
@@ -326,7 +323,11 @@ function initTypedAnimation() {
         } else {
           // After subtitle2 is typed, show the button
           animationStage = 4;
+          isAnimationComplete = true;
           setTimeout(showButton, 500);
+          
+          // Start language cycling after animation is complete
+          setTimeout(startLanguageCycling, 3000);
         }
       }
       
@@ -334,23 +335,52 @@ function initTypedAnimation() {
       typedSubtitle2.textContent = '';
       typeWordByWord();
     }
-  
+
     function showButton() {
       viewWorkBtn.classList.add('visible');
-      isFirstCycle = false;
-      
-      // After the first complete animation, reset to stage 0 to continue language rotation
-      setTimeout(() => {
-        animationStage = 0;
-        langIndex = (langIndex + 1) % howdyLanguages.length;
-        typedHw.textContent = ""; // clear Howdy for next language
-        typeHero();
-      }, 2000);
     }
-  
+
     typeHowdyChar();
   }
+
+  /**
+ * Start cycling through languages with typing animation
+ */
+function startLanguageCycling() {
+  let currentIndex = 0;
   
+  function typeLanguage(text, index = 0) {
+    if (index === 0) {
+      typedHw.textContent = '';
+    }
+    
+    if (index < text.length) {
+      typedHw.textContent += text.charAt(index);
+      setTimeout(() => typeLanguage(text, index + 1), 100);
+    } else {
+      // Wait before erasing
+      setTimeout(eraseLanguage, 2000);
+    }
+  }
+  
+  function eraseLanguage() {
+    const text = typedHw.textContent;
+    if (text.length > 0) {
+      typedHw.textContent = text.slice(0, -1);
+      setTimeout(eraseLanguage, 50);
+    } else {
+      // Move to next language
+      currentIndex = (currentIndex + 1) % howdyLanguages.length;
+      setTimeout(() => typeLanguage(howdyLanguages[currentIndex]), 500);
+    }
+  }
+  
+  // Start the typing cycle
+  if (isAnimationComplete) {
+    typeLanguage(howdyLanguages[currentIndex]);
+  }
+}
+
   // Start the typing animation
   typeHero();
 }
@@ -456,11 +486,9 @@ function initThemeToggle() {
   // Toggle theme on button click
   themeToggle.addEventListener('click', () => {
     if (body.classList.contains('dark-theme')) {
-    body.classList.replace('dark-theme', 'light-theme');
-    localStorage.setItem('theme', 'light-theme');
+      body.classList.replace('dark-theme', 'light-theme');
     } else {
       body.classList.replace('light-theme', 'dark-theme');
-      localStorage.setItem('theme', 'dark-theme');
     }
     
     // Update header bar color after theme change
@@ -691,7 +719,7 @@ function loadLayout() {
 }
 
 /**
- * Initialize horizontal wheel scrolling for projects
+ * Initialize scroll behavior for projects and bentos containers
  */
 function initHorizontalScroll() {
   const projectsContainer = document.querySelector('.projects-scroll-container');
@@ -699,31 +727,147 @@ function initHorizontalScroll() {
   
   if (!projectsContainer && !bentosContainer) return;
   
-  // Function to handle horizontal scroll with mouse wheel
-  function handleHorizontalScroll(e, container) {
-    // Only apply on desktop
-    if (window.innerWidth < 769) return;
+  function initScrollContainer(container) {
+    let isScrolling = false;
+    let startY = null;
+    let startX = null;
+    let scrollLeft = 0;
+    let scrollTop = 0;
+
+    // Touch event handlers
+    container.addEventListener('touchstart', (e) => {
+      startY = e.touches[0].pageY;
+      startX = e.touches[0].pageX;
+      scrollLeft = container.scrollLeft;
+      scrollTop = container.scrollTop;
+    }, { passive: true });
+
+    container.addEventListener('touchmove', (e) => {
+      if (!startY || !startX) return;
+
+      const deltaY = startY - e.touches[0].pageY;
+      const deltaX = startX - e.touches[0].pageX;
+      
+      // Mobile: vertical scroll only
+      if (window.innerWidth <= 768) {
+        container.scrollTop = scrollTop + deltaY;
+        return;
+      }
+      
+      // Desktop/Tablet: prefer horizontal scroll
+      if (Math.abs(deltaX) > Math.abs(deltaY)) {
+        container.scrollLeft = scrollLeft + deltaX;
+        e.preventDefault();
+      } else {
+        container.scrollTop = scrollTop + deltaY;
+      }
+    }, { passive: false });
+
+    container.addEventListener('touchend', () => {
+      startY = null;
+      startX = null;
+    });
+
+    // Mouse wheel handler
+    container.addEventListener('wheel', (e) => {
+      // Mobile: allow normal vertical scrolling
+      if (window.innerWidth <= 768) return;
+
+      if (!isScrolling) {
+        isScrolling = true;
+        
+        // Handle vertical scrolling with wheel
+        if (!e.shiftKey && Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+          container.scrollTop += e.deltaY;
+        } else {
+          // Handle horizontal scrolling
+          container.scrollLeft += e.deltaX || e.deltaY;
+          e.preventDefault();
+        }
+
+        // Debounce scroll handling
+        requestAnimationFrame(() => {
+          isScrolling = false;
+        });
+      }
+    }, { passive: false });
+
+    // Keyboard navigation
+    container.addEventListener('keydown', (e) => {
+      const SCROLL_AMOUNT = 100;
+      
+      switch(e.key) {
+        case 'ArrowRight':
+          container.scrollLeft += SCROLL_AMOUNT;
+          e.preventDefault();
+          break;
+        case 'ArrowLeft':
+          container.scrollLeft -= SCROLL_AMOUNT;
+          e.preventDefault();
+          break;
+        case 'ArrowDown':
+          if (window.innerWidth <= 768) {
+            container.scrollTop += SCROLL_AMOUNT;
+          }
+          break;
+        case 'ArrowUp':
+          if (window.innerWidth <= 768) {
+            container.scrollTop -= SCROLL_AMOUNT;
+          }
+          break;
+      }
+    });
+  }
+
+  // Initialize scroll behavior for both containers
+  if (projectsContainer) initScrollContainer(projectsContainer);
+  if (bentosContainer) initScrollContainer(bentosContainer);
+  
+  // Handle window resize
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      // Reset scroll position on layout change
+      if (projectsContainer) {
+        projectsContainer.scrollLeft = 0;
+        projectsContainer.scrollTop = 0;
+      }
+      if (bentosContainer) {
+        bentosContainer.scrollLeft = 0;
+        bentosContainer.scrollTop = 0;
+      }
+    }, 150);
+  });
+}
+
+/**
+ * Initialize WhatsApp chat button functionality
+ */
+function initWhatsAppChat() {
+  const whatsappButton = document.getElementById('whatsapp-chat');
+  if (!whatsappButton) return;
+  
+  // Set up WhatsApp link based on device
+  function setupWhatsAppLink() {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const phoneNumber = '254790489904'; // Your WhatsApp number
     
-    // Prevent vertical scrolling
-    e.preventDefault();
-    
-    // Scroll horizontally instead
-    container.scrollLeft += e.deltaY;
+    if (isMobile) {
+      // Use WhatsApp deep link for mobile devices
+      whatsappButton.href = `whatsapp://send?phone=${phoneNumber}`;
+    } else {
+      // Use web WhatsApp for desktop
+      whatsappButton.href = `https://web.whatsapp.com/send?phone=${phoneNumber}`;
+    }
   }
   
-  // Add event listeners for projects container
-  if (projectsContainer) {
-    projectsContainer.addEventListener('wheel', (e) => {
-      handleHorizontalScroll(e, projectsContainer);
-    }, { passive: false });
-  }
+  // Set up the link initially
+  setupWhatsAppLink();
   
-  // Add event listeners for bentos container
-  if (bentosContainer) {
-    bentosContainer.addEventListener('wheel', (e) => {
-      handleHorizontalScroll(e, bentosContainer);
-    }, { passive: false });
-  }
+  // Update link on orientation change or resize (for devices that might change)
+  window.addEventListener('resize', setupWhatsAppLink);
+  window.addEventListener('orientationchange', setupWhatsAppLink);
 }
 
 // Export functions for potential module usage
@@ -742,6 +886,7 @@ if (typeof module !== 'undefined' && module.exports) {
     initVideoErrorHandling,
     initLazyLoading,
     initDragAndDrop,
-    initHorizontalScroll
+    initHorizontalScroll,
+    initWhatsAppChat
   };
 }
