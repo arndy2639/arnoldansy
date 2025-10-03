@@ -200,6 +200,15 @@ nav a:hover::after {
     width: 100%;
 }
 
+/* Active navigation state */
+nav a.active {
+    color: var(--accent);
+}
+
+nav a.active::after {
+    width: 100%;
+}
+
 /* Hero Section - Fullscreen */
 .hero {
     position: relative;
@@ -289,16 +298,24 @@ nav a:hover::after {
 
 /* All Sections with Reduced Padding */
 section {
-    padding: 4rem 0;
+    padding: 3rem 0;
     position: relative;
     z-index: 1;
+}
+
+/* About Section Improvements */
+.about-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 /* Recent Work Section */
 .section.recent-work {
     position: relative;
     background: transparent;
-    margin: 4rem 0;
+    margin: 3rem 0;
     overflow: hidden;
     width: 100%;
     z-index: 1;
@@ -321,6 +338,93 @@ section {
     border-top: 1px solid var(--glass-border);
     border-bottom: 1px solid var(--glass-border);
     z-index: 1;
+}
+
+/* View More Button */
+.view-more-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.view-more-btn {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+}
+
+/* Stupid Shots Section */
+.section.stupid-shots {
+    position: relative;
+    background: transparent;
+    margin: 3rem 0;
+    overflow: hidden;
+    width: 100%;
+    z-index: 1;
+    min-height: 80vh;
+}
+
+.stupid-shots-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border-top: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--glass-border);
+    z-index: 1;
+}
+
+.stupid-shots-header {
+    text-align: left;
+}
+
+.stupid-shots-description {
+    max-width: 600px;
+    text-align: left;
+    margin-top: 1rem;
+}
+
+.stupid-shots-description p {
+    font-family: var(--font-secondary);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    color: var(--text-muted);
+}
+
+.stupid-shots-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.stupid-shot-item {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--glass-border-light);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+}
+
+.stupid-shot-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
+}
+
+.stupid-shot-item:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--glass-shadow-strong);
+    border-color: var(--glass-border);
 }
 
 .grid-2-column {
@@ -365,8 +469,10 @@ section {
 }
 
 .button-secondary {
-    display: inline-block;
-    padding: 0.6rem 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.5rem;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border: 1px solid var(--glass-border);
@@ -374,10 +480,12 @@ section {
     border-radius: 8px;
     transition: all 0.3s ease;
     font-weight: 600;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
 }
 
 .button-secondary::before {
@@ -492,7 +600,8 @@ section {
     transition: transform 0.4s ease;
 }
 
-.work-item:hover .video-preview {
+.work-item:hover .video-preview,
+.stupid-shot-item:hover .video-preview {
     transform: scale(1.08);
 }
 
@@ -539,56 +648,6 @@ section {
 .work-content h4 {
     color: var(--text-muted);
     font-weight: 400;
-}
-
-/* Additional Projects - Initially Hidden */
-.additional-project {
-    display: none;
-}
-
-.additional-project.show {
-    display: block;
-    animation: fadeInUp 0.6s ease forwards;
-}
-
-/* View More Button */
-.view-more-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-    padding: 1rem 0;
-}
-
-.view-more-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.8rem 1.5rem;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
-    color: var(--text-main);
-    border-radius: 8px;
-    font-family: var(--font-secondary);
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.view-more-btn:hover {
-    background: var(--accent);
-    color: var(--bg-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(214, 255, 75, 0.3);
-}
-
-.view-more-btn .fa-chevron-down {
-    transition: transform 0.3s ease;
-}
-
-.view-more-btn.expanded .fa-chevron-down {
-    transform: rotate(180deg);
 }
 
 /* Skills Section */
@@ -642,9 +701,9 @@ section {
 .cta {
     position: relative;
     text-align: center;
-    padding: 4rem 1rem;
+    padding: 3rem 1rem;
     border-radius: 16px;
-    margin: 3rem auto;
+    margin: 2rem auto;
     max-width: 1000px;
     overflow: hidden;
     z-index: 1;
@@ -660,7 +719,7 @@ section {
 .cta-video-container {
     position: relative;
     width: 100%;
-    height: 500px;
+    height: 400px;
     border-radius: 16px;
     overflow: hidden;
     border: 1px solid var(--glass-border);
@@ -730,7 +789,7 @@ footer {
     backdrop-filter: blur(25px) saturate(180%);
     -webkit-backdrop-filter: blur(25px) saturate(180%);
     border-top: 1px solid var(--glass-border);
-    padding: 3rem 0 1.5rem 0;
+    padding: 2rem 0 1rem 0;
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
     position: relative;
     z-index: 1;
@@ -768,20 +827,9 @@ footer {
 
 .footer-nav a:hover {
     color: var(--accent);
-    transform: translateX(3px);
-}
-
-.footer-nav a::before {
-    content: '→';
-    position: absolute;
-    left: -12px;
-    opacity: 0;
-    transition: all 0.3s ease;
-}
-
-.footer-nav a:hover::before {
-    opacity: 1;
-    left: -15px;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 4px;
 }
 
 .footer-links {
@@ -801,7 +849,9 @@ footer {
 .footer-links a:hover {
     color: var(--accent);
     opacity: 1;
-    transform: translateX(3px);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 4px;
 }
 
 .social-section {
@@ -849,7 +899,7 @@ footer {
 
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 1.5rem;
+    padding-top: 1rem;
     text-align: center;
 }
 
@@ -936,6 +986,15 @@ footer {
     border-color: rgba(255, 255, 255, 0.3);
 }
 
+/* Modal Navigation */
+.modal-navigation {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid var(--glass-border-light);
+}
+
 /* Animation classes */
 .animate-in {
     animation: fadeInUp 0.6s ease forwards;
@@ -950,6 +1009,15 @@ footer {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Additional Projects */
+.additional-project {
+    display: none;
+}
+
+.additional-project.visible {
+    display: block;
 }
 
 /* Enhanced Responsive Design */
@@ -969,10 +1037,11 @@ footer {
     }
     
     .cta-video-container {
-        height: 400px;
+        height: 350px;
     }
     
-    .work-grid {
+    .work-grid,
+    .stupid-shots-grid {
         grid-template-columns: repeat(2, 1fr);
     }
     
@@ -1008,7 +1077,7 @@ footer {
     }
     
     .cta-video-container {
-        height: 350px;
+        height: 300px;
     }
     
     .work-title,
@@ -1026,7 +1095,8 @@ footer {
         font-size: 20px;
     }
     
-    .work-grid {
+    .work-grid,
+    .stupid-shots-grid {
         grid-template-columns: 1fr;
     }
     
@@ -1056,6 +1126,25 @@ footer {
     .gradient-glow {
         display: none;
     }
+    
+    .modal-navigation {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .modal-navigation button {
+        width: 100%;
+    }
+    
+    .about-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .about-buttons .button-secondary {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1074,7 +1163,7 @@ footer {
     }
     
     .cta-video-container {
-        height: 300px;
+        height: 250px;
     }
     
     .work-title,
@@ -1093,7 +1182,8 @@ footer {
     }
     
     .skill-description,
-    .about-content p {
+    .about-content p,
+    .stupid-shots-description p {
         font-size: 14px;
     }
     
@@ -1107,7 +1197,7 @@ footer {
     }
     
     section {
-        padding: 3rem 0;
+        padding: 2rem 0;
     }
     
     .video-container {
@@ -1129,5 +1219,169 @@ footer {
     .social-icon {
         width: 35px;
         height: 35px;
+    }
+}
+/* Additional Projects */
+.additional-project {
+    display: none;
+}
+
+.additional-project.visible {
+    display: block;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* View More Button Animation */
+.view-more-btn.expanded {
+    background: var(--accent);
+    color: var(--bg-dark);
+    border-color: var(--accent);
+}
+
+/* Enhanced Video Autoplay Fallback */
+.video-preview.autoplay-fallback {
+    position: relative;
+}
+
+.video-preview.autoplay-fallback::after {
+    content: 'Click to play';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.video-preview.autoplay-fallback.paused::after {
+    opacity: 1;
+}
+
+/* Stupid Shots Video Overlay */
+.stupid-shot-item {
+    cursor: pointer;
+}
+
+.stupid-shot-item .video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.stupid-shot-item .video-overlay i {
+    font-size: 3rem;
+    color: var(--accent);
+    transition: all 0.3s ease;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.stupid-shot-item:hover .video-overlay {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.stupid-shot-item:hover .video-overlay i {
+    transform: scale(1.2);
+}
+/* Wider container for Stupid Shots */
+.container-wide {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Enhanced Stupid Shots Grid Layout */
+.stupid-shots-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    width: 100%;
+}
+
+/* Larger video containers for Stupid Shots */
+.stupid-shots .video-container {
+    height: 320px;
+    width: 100%;
+}
+
+/* Enhanced Stupid Shot Items */
+.stupid-shot-item {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--glass-border-light);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    cursor: pointer;
+}
+
+.stupid-shot-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
+}
+
+.stupid-shot-item:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--glass-shadow-strong);
+    border-color: var(--glass-border);
+}
+
+.stupid-shot-item:hover .video-preview {
+    transform: scale(1.08);
+}
+
+/* Responsive adjustments for larger grid */
+@media (max-width: 1200px) {
+    .stupid-shots-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .container-wide {
+        max-width: 1200px;
+        padding: 0 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .stupid-shots-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .stupid-shots .video-container {
+        height: 280px;
+    }
+    
+    .container-wide {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .stupid-shots .video-container {
+        height: 240px;
     }
 }

@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Arnold | 3D Designer Portfolio</title>
+    <meta name="description" content="Award-winning 3D Designer and Animator portfolio showcasing recent work and creative projects">
+    <link rel="preconnect" href="https://api.fontshare.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -21,17 +24,18 @@
                 <div class="logo">ARNOLD</div>
                 <nav>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="stupid-shots.html">Stupid Shots</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
 
-    <section class="hero">
-        <video autoplay muted loop class="hero-video">
+    <section id="home" class="hero">
+        <video autoplay muted loop playsinline class="hero-video" preload="metadata">
             <source src="Blueprint Showreel.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -60,9 +64,10 @@
                 </h2>
                 <div class="about-content">
                     <p>I'm Arnold — an accomplished 3D designer. I design and bring to life immersive environments. My work combines creativity and technical precision. I have a short but strong portfolio showcasing my creations.</p>
-                    <div class="spacer"></div>
-                    <!-- Updated CV Download Button -->
-                    <a href="arnold-cv.pdf" class="button-secondary" download="Arnold_CV.pdf">Download My CV</a>
+                    <div class="about-buttons">
+                        <button class="button-secondary" id="playMeButton">Play Me</button>
+                        <a href="arnold-cv.pdf" class="button-secondary" download="Arnold_CV.pdf">Download My CV</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -81,11 +86,11 @@
             </div>
             <div class="spacer _32"></div>
             <div class="work-wrapper">
-                <div class="work-grid">
+                <div class="work-grid" id="workGrid">
                     <!-- Project 1 -->
                     <div role="listitem" class="work-item" data-video="Ice Cream Pack Reveal.mp4">
                         <div class="video-container">
-                            <video muted loop class="video-preview">
+                            <video autoplay muted loop playsinline class="video-preview" preload="metadata">
                                 <source src="Ice Cream Pack Reveal.mp4" type="video/mp4">
                             </video>
                             <div class="video-overlay">
@@ -103,7 +108,7 @@
                     <!-- Project 2 -->
                     <div role="listitem" class="work-item" data-video="Ceres Orange & apple Juice Animation.mp4">
                         <div class="video-container">
-                            <video muted loop class="video-preview">
+                            <video autoplay muted loop playsinline class="video-preview" preload="metadata">
                                 <source src="Ceres Orange & apple Juice Animation.mp4" type="video/mp4">
                             </video>
                             <div class="video-overlay">
@@ -121,7 +126,7 @@
                     <!-- Project 3 -->
                     <div role="listitem" class="work-item" data-video="Minute Maid CGI_01.mp4">
                         <div class="video-container">
-                            <video muted loop class="video-preview">
+                            <video autoplay muted loop playsinline class="video-preview" preload="metadata">
                                 <source src="Minute Maid CGI_01.mp4" type="video/mp4">
                             </video>
                             <div class="video-overlay">
@@ -139,7 +144,7 @@
                     <!-- Project 4 -->
                     <div role="listitem" class="work-item" data-video="Tusker CGI_1.mp4">
                         <div class="video-container">
-                            <video muted loop class="video-preview">
+                            <video autoplay muted loop playsinline class="video-preview" preload="metadata">
                                 <source src="Tusker CGI_1.mp4" type="video/mp4">
                             </video>
                             <div class="video-overlay">
@@ -157,7 +162,7 @@
                     <!-- Project 5 -->
                     <div role="listitem" class="work-item" data-video="Bata 3D OOH.mp4">
                         <div class="video-container">
-                            <video muted loop class="video-preview">
+                            <video autoplay muted loop playsinline class="video-preview" preload="metadata">
                                 <source src="Bata 3D OOH.mp4" type="video/mp4">
                             </video>
                             <div class="video-overlay">
@@ -175,7 +180,7 @@
                     <!-- Project 6 -->
                     <div role="listitem" class="work-item" data-video="LG QNED EVO Post 1 .mp4">
                         <div class="video-container">
-                            <video muted loop class="video-preview">
+                            <video autoplay muted loop playsinline class="video-preview" preload="metadata">
                                 <source src="LG QNED EVO Post 1 .mp4" type="video/mp4">
                             </video>
                             <div class="video-overlay">
@@ -190,28 +195,96 @@
                         </div>
                     </div>
 
-                    <!-- Additional Projects (Initially Hidden) -->
-                    <div class="work-item additional-project" data-video="Toss.mp4">
+                    <!-- Hidden Projects 7-12 -->
+                    <div role="listitem" class="work-item additional-project" data-video="We Outside.mp4">
                         <div class="video-container">
-                            <video muted loop class="video-preview">
-                                <source src="Toss.mp4" type="video/mp4">
+                            <video autoplay muted loop playsinline class="video-preview" preload="metadata">
+                                <source src="We Outside.mp4" type="video/mp4">
                             </video>
                             <div class="video-overlay">
                                 <i class="fas fa-play"></i>
                             </div>
                         </div>
                         <div class="work-content">
-                            <h3 class="heading small">Astral Projection</h3>
+                            <h3 class="heading small">Neon Dreams</h3>
+                            <div class="text-white-64">
+                                <h4 class="heading small">3D Animation</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div role="listitem" class="work-item additional-project" data-video="Toss Reveal.mp4">
+                        <div class="video-container">
+                            <video autoplay muted loop playsinline class="video-preview" preload="metadata">
+                                <source src="Toss Reveal.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="work-content">
+                            <h3 class="heading small">Quantum Flux</h3>
                             <div class="text-white-64">
                                 <h4 class="heading small">Visual Design</h4>
                             </div>
                         </div>
                     </div>
 
-                    <div class="work-item additional-project" data-video="OLA 3D DOOH.MP4">
+                    <div role="listitem" class="work-item additional-project" data-video="Do KRACKLES Concept 2.MP4">
                         <div class="video-container">
-                            <video muted loop class="video-preview">
-                                <source src="OLA 3D DOOH.MP4" type="video/mp4">
+                            <video autoplay muted loop playsinline class="video-preview" preload="metadata">
+                                <source src="Do KRACKLES Concept 2.MP4" type="video/mp4">
+                            </video>
+                            <div class="video-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="work-content">
+                            <h3 class="heading small">Cyber Fusion</h3>
+                            <div class="text-white-64">
+                                <h4 class="heading small">Art Direction</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div role="listitem" class="work-item additional-project" data-video="How to View Card Details & CVV (Security Code).mp4">
+                        <div class="video-container">
+                            <video autoplay muted loop playsinline class="video-preview" preload="metadata">
+                                <source src="How to View Card Details & CVV (Security Code).mp4" type="video/mp4">
+                            </video>
+                            <div class="video-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="work-content">
+                            <h3 class="heading small">Digital Echo</h3>
+                            <div class="text-white-64">
+                                <h4 class="heading small">3D Design</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div role="listitem" class="work-item additional-project" data-video="DNA.mp4">
+                        <div class="video-container">
+                            <video autoplay muted loop playsinline class="video-preview" preload="metadata">
+                                <source src="DNA.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="work-content">
+                            <h3 class="heading small">Urban Pulse</h3>
+                            <div class="text-white-64">
+                                <h4 class="heading small">Animation</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div role="listitem" class="work-item additional-project" data-video="Flip Side.mp4">
+                        <div class="video-container">
+                            <video autoplay muted loop playsinline class="video-preview" preload="metadata">
+                                <source src="Flip Side.mp4" type="video/mp4">
                             </video>
                             <div class="video-overlay">
                                 <i class="fas fa-play"></i>
@@ -224,81 +297,9 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="work-item additional-project" data-video="Ceres Orange & apple Juice Animation.mp4">
-                        <div class="video-container">
-                            <video muted loop class="video-preview">
-                                <source src="Ceres Orange & apple Juice Animation.mp4" type="video/mp4">
-                            </video>
-                            <div class="video-overlay">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                        <div class="work-content">
-                            <h3 class="heading small">Digital Horizon</h3>
-                            <div class="text-white-64">
-                                <h4 class="heading small">3D Design</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="work-item additional-project" data-video="How to View Card Details & CVV (Security Code).mp4">
-                        <div class="video-container">
-                            <video muted loop class="video-preview">
-                                <source src="How to View Card Details & CVV (Security Code).mp4" type="video/mp4">
-                            </video>
-                            <div class="video-overlay">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                        <div class="work-content">
-                            <h3 class="heading small">Neo Dimensions</h3>
-                            <div class="text-white-64">
-                                <h4 class="heading small">Art Direction</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="work-item additional-project" data-video="https://assets.codepen.io/3364143/720p.mp4">
-                        <div class="video-container">
-                            <video muted loop class="video-preview">
-                                <source src="https://assets.codepen.io/3364143/720p.mp4" type="video/mp4">
-                            </video>
-                            <div class="video-overlay">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                        <div class="work-content">
-                            <h3 class="heading small">Virtual Reality</h3>
-                            <div class="text-white-64">
-                                <h4 class="heading small">3D Animation</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="work-item additional-project" data-video="https://assets.codepen.io/3364143/720p.mp4">
-                        <div class="video-container">
-                            <video muted loop class="video-preview">
-                                <source src="https://assets.codepen.io/3364143/720p.mp4" type="video/mp4">
-                            </video>
-                            <div class="video-overlay">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                        <div class="work-content">
-                            <h3 class="heading small">Space Odyssey</h3>
-                            <div class="text-white-64">
-                                <h4 class="heading small">Visual Design</h4>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                
                 <div class="view-more-container">
-                    <button class="view-more-btn" id="viewMoreBtn">
-                        View More
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
+                    <button class="button-secondary view-more-btn" id="viewMoreBtn">View More</button>
                 </div>
             </div>
         </div>
@@ -333,8 +334,8 @@
         <section id="contact" class="cta">
             <div class="cta-content">
                 <div class="cta-video-container">
-                    <video autoplay muted loop class="cta-video">
-                        <source src="Blueprint Showreel.mp4" type="video/mp4">
+                    <video autoplay muted loop playsinline class="cta-video" preload="metadata">
+                        <source src="CTA.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <div class="cta-video-overlay"></div>
@@ -353,9 +354,10 @@
                 <div class="footer-name">ARNOLD</div>
                 
                 <div class="footer-nav">
-                    <a href="#">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#contact">Contact</a>
+                    <a href="index.html">Home</a>
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#contact">Contact</a>
+                    <a href="stupid-shots.html">Stupid Shots</a>
                 </div>
 
                 <div class="footer-links">
@@ -367,16 +369,16 @@
                 <div class="social-section">
                     <h3 class="follow-title">Follow Me</h3>
                     <div class="social-icons">
-                        <a href="https://www.linkedin.com/in/arnold-arndy" class="social-icon" aria-label="LinkedIn" target="_blank">
+                        <a href="https://www.linkedin.com/in/arnold-arndy" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="https://www.behance.net/arnoldarndy" class="social-icon" aria-label="Behance" target="_blank">
+                        <a href="https://www.behance.net/arnoldarndy" class="social-icon" aria-label="Behance" target="_blank" rel="noopener">
                             <i class="fab fa-behance"></i>
                         </a>
-                        <a href="https://www.instagram.com/arnold_animation" class="social-icon" aria-label="Instagram" target="_blank">
+                        <a href="https://www.instagram.com/arnold_animation" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://youtube.com/@arnoldarndy" class="social-icon" aria-label="YouTube" target="_blank">
+                        <a href="https://youtube.com/@arnoldarndy" class="social-icon" aria-label="YouTube" target="_blank" rel="noopener">
                             <i class="fab fa-youtube"></i>
                         </a>
                     </div>
@@ -394,10 +396,24 @@
     <div class="video-modal" id="videoModal">
         <div class="modal-content">
             <button class="close-modal" id="closeModal">&times;</button>
-            <video class="modal-video" id="modalVideo" controls>
+            <video class="modal-video" id="modalVideo" controls preload="metadata">
                 <source src="" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
+        </div>
+    </div>
+
+    <div class="video-modal" id="playMeModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closePlayMeModal">&times;</button>
+            <video class="modal-video" id="playMeVideo" controls preload="metadata">
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="modal-navigation">
+                <button class="button-secondary" id="prevVideo">Previous</button>
+                <button class="button-secondary" id="nextVideo">Next</button>
+            </div>
         </div>
     </div>
 
