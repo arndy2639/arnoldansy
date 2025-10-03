@@ -1,332 +1,406 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arnold | 3D Designer Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arnold | 3D Designer Portfolio</title>
+    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
+    <!-- Gradient Glow Elements -->
+    <div class="gradient-glow glow-1"></div>
+    <div class="gradient-glow glow-2"></div>
+    <div class="gradient-glow glow-3"></div>
+    <div class="gradient-glow glow-4"></div>
+
     <header>
-      <div class="logo">ARNOLD</div>
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-  </div>
-
-  <section class="hero">
-    <video autoplay muted loop class="hero-video">
-      <source src="Blueprint Showreel.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <div class="container">
-      <div class="hero-content">
-        <h1>
-          <span class="hero-line">
-            <span class="hero-text typewriter-line-1">I'M ARNOLD, AN</span>
-          </span>
-          <span class="hero-line">
-            <span class="hero-text typewriter-line-2 accent-text">AWARD-WINNING</span>
-          </span>
-          <span class="hero-line">
-            <span class="hero-text typewriter-line-3" id="rotating-title">3D ANIMATOR</span>
-          </span>
-        </h1>
-      </div>
-    </div>
-  </section>
-
-  <div class="container">
-    <section id="about" class="about">
-      <div class="grid-2-column align-baseline">
-        <h2 class="about-title">
-          <span class="text-color-yellow">•</span>&nbsp;About
-        </h2>
-        <div class="about-content">
-          <p>I'm Arnold — an accomplished 3D designer. I design and bring to life immersive environments. My work combines creativity and technical precision. I have a short but strong portfolio showcasing my creations.</p>
-          <div class="spacer"></div>
-          <a href="/about" class="button-secondary">More about me</a>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">ARNOLD</div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-      </div>
+    </header>
+
+    <section class="hero">
+        <video autoplay muted loop class="hero-video">
+            <source src="Blueprint Showreel.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="container">
+            <div class="hero-content">
+                <h1>
+                    <span class="hero-line">
+                        <span class="hero-text typewriter-line-1">I'M ARNOLD, AN</span>
+                    </span>
+                    <span class="hero-line">
+                        <span class="hero-text typewriter-line-2 accent-text">AWARD-WINNING</span>
+                    </span>
+                    <span class="hero-line">
+                        <span class="hero-text typewriter-line-3" id="rotating-title">3D ANIMATOR</span>
+                    </span>
+                </h1>
+            </div>
+        </div>
     </section>
+
+    <div class="container">
+        <section id="about" class="about">
+            <div class="grid-2-column align-baseline">
+                <h2 class="about-title">
+                    <span class="text-color-yellow">•</span>&nbsp;About
+                </h2>
+                <div class="about-content">
+                    <p>I'm Arnold — an accomplished 3D designer. I design and bring to life immersive environments. My work combines creativity and technical precision. I have a short but strong portfolio showcasing my creations.</p>
+                    <div class="spacer"></div>
+                    <!-- Updated CV Download Button -->
+                    <a href="arnold-cv.pdf" class="button-secondary" download="Arnold_CV.pdf">Download My CV</a>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <section class="section recent-work">
-      <div class="glass-background"></div>
-      <div class="container">
-        <div class="grid-work-header">
-          <h2 class="work-title">
-            <span class="text-color-yellow">•</span>&nbsp;&nbsp;Recent work
-          </h2>
-          <div class="text-white-50">
-            <div class="heading extra-small">2022-2025</div>
-          </div>
+        <div class="recent-work-background"></div>
+        <div class="container">
+            <div class="grid-work-header">
+                <h2 class="work-title">
+                    <span class="text-color-yellow">•</span>&nbsp;&nbsp;Recent work
+                </h2>
+                <div class="text-white-50">
+                    <div class="heading extra-small">2022-2025</div>
+                </div>
+            </div>
+            <div class="spacer _32"></div>
+            <div class="work-wrapper">
+                <div class="work-grid">
+                    <!-- Project 1 -->
+                    <div role="listitem" class="work-item" data-video="Ice Cream Pack Reveal.mp4">
+                        <div class="video-container">
+                            <video muted loop class="video-preview">
+                                <source src="Ice Cream Pack Reveal.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="work-content">
+                            <h3 class="heading small">Cosmic Reflections</h3>
+                            <div class="text-white-64">
+                                <h4 class="heading small">3D Animation</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div role="listitem" class="work-item" data-video="Ceres Orange & apple Juice Animation.mp4">
+                        <div class="video-container">
+                            <video muted loop class="video-preview">
+                                <source src="Ceres Orange & apple Juice Animation.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="work-content">
+                            <h3 class="heading small">Digital Dreams</h3>
+                            <div class="text-white-64">
+                                <h4 class="heading small">Art Direction</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div role="listitem" class="work-item" data-video="Minute Maid CGI_01.mp4">
+                        <div class="video-container">
+                            <video muted loop class="video-preview">
+                                <source src="Minute Maid CGI_01.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="work-content">
+                            <h3 class="heading small">Urban Echo</h3>
+                            <div class="text-white-64">
+                                <h4 class="heading small">Visual Design</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div role="listitem" class="work-item" data-video="Tusker CGI_1.mp4">
+                        <div class="video-container">
+                            <video muted loop class="video-preview">
+                                <source src="Tusker CGI_1.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="work-content">
+                            <h3 class="heading small">Neon Pulse</h3>
+                            <div class="text-white-64">
+                                <h4 class="heading small">3D Animation</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div role="listitem" class="work-item" data-video="Bata 3D OOH.mp4">
+                        <div class="video-container">
+                            <video muted loop class="video-preview">
+                                <source src="Bata 3D OOH.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="work-content">
+                            <h3 class="heading small">Quantum Realm</h3>
+                            <div class="text-white-64">
+                                <h4 class="heading small">3D Design</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div role="listitem" class="work-item" data-video="LG QNED EVO Post 1 .mp4">
+                        <div class="video-container">
+                            <video muted loop class="video-preview">
+                                <source src="LG QNED EVO Post 1 .mp4" type="video/mp4">
+                            </video>
+                            <div class="video-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="work-content">
+                            <h3 class="heading small">Cyber City</h3>
+                            <div class="text-white-64">
+                                <h4 class="heading small">Art Direction</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Projects (Initially Hidden) -->
+                    <div class="work-item additional-project" data-video="Toss.mp4">
+                        <div class="video-container">
+                            <video muted loop class="video-preview">
+                                <source src="Toss.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="work-content">
+                            <h3 class="heading small">Astral Projection</h3>
+                            <div class="text-white-64">
+                                <h4 class="heading small">Visual Design</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="work-item additional-project" data-video="OLA 3D DOOH.MP4">
+                        <div class="video-container">
+                            <video muted loop class="video-preview">
+                                <source src="OLA 3D DOOH.MP4" type="video/mp4">
+                            </video>
+                            <div class="video-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="work-content">
+                            <h3 class="heading small">Future Vision</h3>
+                            <div class="text-white-64">
+                                <h4 class="heading small">3D Animation</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="work-item additional-project" data-video="Ceres Orange & apple Juice Animation.mp4">
+                        <div class="video-container">
+                            <video muted loop class="video-preview">
+                                <source src="Ceres Orange & apple Juice Animation.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="work-content">
+                            <h3 class="heading small">Digital Horizon</h3>
+                            <div class="text-white-64">
+                                <h4 class="heading small">3D Design</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="work-item additional-project" data-video="https://assets.codepen.io/3364143/720p.mp4">
+                        <div class="video-container">
+                            <video muted loop class="video-preview">
+                                <source src="https://assets.codepen.io/3364143/720p.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="work-content">
+                            <h3 class="heading small">Neo Dimensions</h3>
+                            <div class="text-white-64">
+                                <h4 class="heading small">Art Direction</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="work-item additional-project" data-video="https://assets.codepen.io/3364143/720p.mp4">
+                        <div class="video-container">
+                            <video muted loop class="video-preview">
+                                <source src="https://assets.codepen.io/3364143/720p.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="work-content">
+                            <h3 class="heading small">Virtual Reality</h3>
+                            <div class="text-white-64">
+                                <h4 class="heading small">3D Animation</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="work-item additional-project" data-video="https://assets.codepen.io/3364143/720p.mp4">
+                        <div class="video-container">
+                            <video muted loop class="video-preview">
+                                <source src="https://assets.codepen.io/3364143/720p.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="work-content">
+                            <h3 class="heading small">Space Odyssey</h3>
+                            <div class="text-white-64">
+                                <h4 class="heading small">Visual Design</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="view-more-container">
+                    <button class="view-more-btn" id="viewMoreBtn">
+                        View More
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="spacer _48"></div>
-        <div class="work-wrapper">
-          <div class="work-grid">
-            <!-- Project 1 -->
-            <div role="listitem" class="work-item" data-video="Ice Cream Pack Reveal.mp4">
-              <div class="video-container">
-                <video muted loop class="video-preview">
-                  <source src="Ice Cream Pack Reveal.mp4" type="video/mp4">
-                </video>
-                <div class="video-overlay">
-                  <i class="fas fa-play"></i>
-                </div>
-              </div>
-              <div class="work-content">
-                <h3 class="heading small">Cosmic Reflections</h3>
-                <div class="text-white-64">
-                  <h4 class="heading small">3D Animation</h4>
-                </div>
-              </div>
-            </div>
-
-            <!-- Project 2 -->
-            <div role="listitem" class="work-item" data-video="OLA 3D DOOH.MP4">
-              <div class="video-container">
-                <video muted loop class="video-preview">
-                  <source src="OLA 3D DOOH.MP4" type="video/mp4">
-                </video>
-                <div class="video-overlay">
-                  <i class="fas fa-play"></i>
-                </div>
-              </div>
-              <div class="work-content">
-                <h3 class="heading small">Digital Dreams</h3>
-                <div class="text-white-64">
-                  <h4 class="heading small">Art Direction</h4>
-                </div>
-              </div>
-            </div>
-
-            <!-- Project 3 -->
-            <div role="listitem" class="work-item" data-video="Minute Maid CGI_01.mp4">
-              <div class="video-container">
-                <video muted loop class="video-preview">
-                  <source src="Minute Maid CGI_01.mp4" type="video/mp4">
-                </video>
-                <div class="video-overlay">
-                  <i class="fas fa-play"></i>
-                </div>
-              </div>
-              <div class="work-content">
-                <h3 class="heading small">Urban Echo</h3>
-                <div class="text-white-64">
-                  <h4 class="heading small">Visual Design</h4>
-                </div>
-              </div>
-            </div>
-
-            <!-- Project 4 -->
-            <div role="listitem" class="work-item" data-video="Tusker CGI_1.mp4">
-              <div class="video-container">
-                <video muted loop class="video-preview">
-                  <source src="Tusker CGI_1.mp4" type="video/mp4">
-                </video>
-                <div class="video-overlay">
-                  <i class="fas fa-play"></i>
-                </div>
-              </div>
-              <div class="work-content">
-                <h3 class="heading small">Neon Pulse</h3>
-                <div class="text-white-64">
-                  <h4 class="heading small">3D Animation</h4>
-                </div>
-              </div>
-            </div>
-
-            <!-- Project 5 -->
-            <div role="listitem" class="work-item" data-video="Bata 3D OOH.mp4">
-              <div class="video-container">
-                <video muted loop class="video-preview">
-                  <source src="Bata 3D OOH.mp4" type="video/mp4">
-                </video>
-                <div class="video-overlay">
-                  <i class="fas fa-play"></i>
-                </div>
-              </div>
-              <div class="work-content">
-                <h3 class="heading small">Quantum Realm</h3>
-                <div class="text-white-64">
-                  <h4 class="heading small">3D Design</h4>
-                </div>
-              </div>
-            </div>
-
-            <!-- Project 6 -->
-            <div role="listitem" class="work-item" data-video="Ceres Orange & apple Juice Animation.mp4">
-              <div class="video-container">
-                <video muted loop class="video-preview">
-                  <source src="Ceres Orange & apple Juice Animation.mp4" type="video/mp4">
-                </video>
-                <div class="video-overlay">
-                  <i class="fas fa-play"></i>
-                </div>
-              </div>
-              <div class="work-content">
-                <h3 class="heading small">Cyber City</h3>
-                <div class="text-white-64">
-                  <h4 class="heading small">Art Direction</h4>
-                </div>
-              </div>
-            </div>
-
-            <!-- Project 7 -->
-            <div role="listitem" class="work-item" data-video="Toss.mp4">
-              <div class="video-container">
-                <video muted loop class="video-preview">
-                  <source src="Toss.mp4" type="video/mp4">
-                </video>
-                <div class="video-overlay">
-                  <i class="fas fa-play"></i>
-                </div>
-              </div>
-              <div class="work-content">
-                <h3 class="heading small">Astral Projection</h3>
-                <div class="text-white-64">
-                  <h4 class="heading small">Visual Design</h4>
-                </div>
-              </div>
-            </div>
-
-            <!-- Project 8 -->
-            <div role="listitem" class="work-item" data-video="https://assets.codepen.io/3364143/720p.mp4">
-              <div class="video-container">
-                <video muted loop class="video-preview">
-                  <source src="Do KRACKLES Concept 2.MP4" type="video/mp4">
-                </video>
-                <div class="video-overlay">
-                  <i class="fas fa-play"></i>
-                </div>
-              </div>
-              <div class="work-content">
-                <h3 class="heading small">Future Vision</h3>
-                <div class="text-white-64">
-                  <h4 class="heading small">3D Animation</h4>
-                </div>
-              </div>
-            </div>
-
-            <!-- Project 9 -->
-            <div role="listitem" class="work-item" data-video="https://assets.codepen.io/3364143/720p.mp4">
-              <div class="video-container">
-                <video muted loop class="video-preview">
-                  <source src="Toss.mp4" type="video/mp4">
-                </video>
-                <div class="video-overlay">
-                  <i class="fas fa-play"></i>
-                </div>
-              </div>
-              <div class="work-content">
-                <h3 class="heading small">Digital Horizon</h3>
-                <div class="text-white-64">
-                  <h4 class="heading small">3D Design</h4>
-                </div>
-              </div>
-            </div>
-
-            <!-- Project 10 -->
-            <div role="listitem" class="work-item" data-video="https://assets.codepen.io/3364143/720p.mp4">
-              <div class="video-container">
-                <video muted loop class="video-preview">
-                  <source src="Do KRACKLES Concept 2.MP4" type="video/mp4">
-                </video>
-                <div class="video-overlay">
-                  <i class="fas fa-play"></i>
-                </div>
-              </div>
-              <div class="work-content">
-                <h3 class="heading small">Neo Dimensions</h3>
-                <div class="text-white-64">
-                  <h4 class="heading small">Art Direction</h4>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <section class="skills">
-      <div class="grid-2-column align-baseline">
-        <h2 class="skills-title">
-          <span class="text-color-yellow">•</span>&nbsp;Skills
-        </h2>
-        <div class="list-wrapper">
-          <div class="list-item">
-            <h3 class="skill-heading">3D&nbsp;design</h3>
-            <div class="spacer-24"></div>
-            <p class="skill-description">I specialise in 3D design, creating detailed and immersive environments. My designs are both visually stunning and technically precise. Whether it's for games, films, or virtual experiences. I ensure each project is unique.</p>
-          </div>
-          <div class="list-item">
-            <h3 class="skill-heading">Art direction</h3>
-            <div class="spacer-24"></div>
-            <p class="skill-description">As an art director, I guide the visual style and creative direction of projects. I work closely with teams to develop cohesive and impactful visual narratives. My aim is to ensure that every element aligns with the project's vision, delivering a polished and professional final product.</p>
-          </div>
-          <div class="list-item last-item">
-            <h3 class="skill-heading">Visual design</h3>
-            <div class="spacer-24"></div>
-            <p class="skill-description">I create compelling and aesthetically pleasing visuals. I combine colour, typography, and layout to produce designs that are not only beautiful but also effective in communicating your message. From branding to digital content, I strive for excellence in every detail.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div class="container">
+        <section class="skills">
+            <div class="grid-2-column align-baseline">
+                <h2 class="skills-title">
+                    <span class="text-color-yellow">•</span>&nbsp;Skills
+                </h2>
+                <div class="list-wrapper">
+                    <div class="list-item">
+                        <h3 class="skill-heading">3D&nbsp;design</h3>
+                        <div class="spacer-16"></div>
+                        <p class="skill-description">I specialise in 3D design, creating detailed and immersive environments. My designs are both visually stunning and technically precise. Whether it's for games, films, or virtual experiences. I ensure each project is unique.</p>
+                    </div>
+                    <div class="list-item">
+                        <h3 class="skill-heading">Art direction</h3>
+                        <div class="spacer-16"></div>
+                        <p class="skill-description">As an art director, I guide the visual style and creative direction of projects. I work closely with teams to develop cohesive and impactful visual narratives. My aim is to ensure that every element aligns with the project's vision, delivering a polished and professional final product.</p>
+                    </div>
+                    <div class="list-item last-item">
+                        <h3 class="skill-heading">Visual design</h3>
+                        <div class="spacer-16"></div>
+                        <p class="skill-description">I create compelling and aesthetically pleasing visuals. I combine colour, typography, and layout to produce designs that are not only beautiful but also effective in communicating your message. From branding to digital content, I strive for excellence in every detail.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section id="contact" class="cta">
-      <div class="glass-background"></div>
-      <div class="cta-content">
-        <h2>LET'S WORK<br>TOGETHER</h2>
-        <a href="mailto:hi@arnold.com" class="cta-email">HI@ARNOLD.COM</a>
-      </div>
-    </section>
-  </div>
-
-  <div class="container">
-    <footer>
-      <div class="footer-name">ARNOLD</div>
-      
-      <div class="footer-nav">
-        <a href="#">Home</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </div>
-      
-      <div class="social-icons">
-        <a href="https://www.linkedin.com/in/arnold-arndy" class="social-icon" aria-label="LinkedIn" target="_blank">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://www.behance.net/arnoldarndy" class="social-icon" aria-label="Behance" target="_blank">
-          <i class="fab fa-behance"></i>
-        </a>
-        <a href="https://www.instagram.com/arnold_animation" class="social-icon" aria-label="Instagram" target="_blank">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://youtube.com/@arnoldarndy" class="social-icon" aria-label="YouTube" target="_blank">
-          <i class="fab fa-youtube"></i>
-        </a>
-      </div>
-    </footer>
-  </div>
-
-  <div class="video-modal" id="videoModal">
-    <div class="modal-content">
-      <button class="close-modal" id="closeModal">&times;</button>
-      <video class="modal-video" id="modalVideo" controls>
-        <source src="" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+        <section id="contact" class="cta">
+            <div class="cta-content">
+                <div class="cta-video-container">
+                    <video autoplay muted loop class="cta-video">
+                        <source src="Blueprint Showreel.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="cta-video-overlay"></div>
+                    <div class="cta-text-overlay">
+                        <h2><br></h2>
+                        <a href="mailto:hi@arnold.com" class="cta-email">HI@ARNOLD.COM</a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-  </div>
 
-  <script src="script.js"></script>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-name">ARNOLD</div>
+                
+                <div class="footer-nav">
+                    <a href="#">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Copyright</a>
+                </div>
+                
+                <div class="social-section">
+                    <h3 class="follow-title">Follow Me</h3>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/arnold-arndy" class="social-icon" aria-label="LinkedIn" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.behance.net/arnoldarndy" class="social-icon" aria-label="Behance" target="_blank">
+                            <i class="fab fa-behance"></i>
+                        </a>
+                        <a href="https://www.instagram.com/arnold_animation" class="social-icon" aria-label="Instagram" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://youtube.com/@arnoldarndy" class="social-icon" aria-label="YouTube" target="_blank">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>Made by Arnold Studio</p>
+                    <p>© 2026 Arnold. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="video-modal" id="videoModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <video class="modal-video" id="modalVideo" controls>
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
