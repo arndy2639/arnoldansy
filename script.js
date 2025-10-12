@@ -21,7 +21,6 @@ function initializePageSpecificFeatures() {
 function initializeHomePageFeatures() {
     initializeSmoothScrolling();
     initializeRotatingTitle();
-    initializePlayMeButton();
     initializeViewMoreButton();
 }
 
@@ -40,7 +39,7 @@ function initializeCommonFeatures() {
 
 // Enhanced Video Autoplay with Fallback
 function initializeVideoAutoplay() {
-    const allVideos = document.querySelectorAll('video');
+    const allVideos = document.querySelectorAll('video:not(.about-video)');
     
     allVideos.forEach(video => {
         // Add fallback class for browsers that block autoplay
@@ -174,9 +173,9 @@ function initializeIntersectionObserver() {
 
 // Video functionality
 function initializeVideoFunctionality() {
-    // Add click event listeners to work items
-    const workItems = document.querySelectorAll('.work-item');
-    workItems.forEach(item => {
+    // Add click event listeners to all clickable video items
+    const clickableItems = document.querySelectorAll('.work-item, .stupid-shot-item, .about-image-section');
+    clickableItems.forEach(item => {
         item.addEventListener('click', function() {
             const videoSrc = this.getAttribute('data-video');
             openVideo(videoSrc, this);
@@ -184,64 +183,6 @@ function initializeVideoFunctionality() {
     });
 
     // Add click event listeners to stupid shot items
-    const stupidShotItems = document.querySelectorAll('.stupid-shot-item');
-    stupidShotItems.forEach(item => {
-        item.addEventListener('click', function() {
-            const videoSrc = this.getAttribute('data-video');
-            openVideo(videoSrc, this);
-        });
-    });
-}
-
-// Play Me button functionality
-function initializePlayMeButton() {
-    const playMeButton = document.getElementById('playMeButton');
-    if (!playMeButton) return;
-    
-    const playMeModal = document.getElementById('playMeModal');
-    const closePlayMeModal = document.getElementById('closePlayMeModal');
-    const playMeVideo = document.getElementById('playMeVideo');
-    const prevButton = document.getElementById('prevVideo');
-    const nextButton = document.getElementById('nextVideo');
-    
-    const videoPlaylist = [
-        'Ice Cream Pack Reveal.mp4',
-        'Ceres Orange & apple Juice Animation.mp4',
-        'Minute Maid CGI_01.mp4',
-        'Tusker CGI_1.mp4',
-        'Bata 3D OOH.mp4',
-        'LG QNED EVO Post 1 .mp4'
-    ];
-    
-    let currentVideoIndex = 0;
-    
-    playMeButton.addEventListener('click', function() {
-        currentVideoIndex = 0;
-        playVideoInModal(videoPlaylist[currentVideoIndex]);
-        playMeModal.classList.add('active');
-    });
-    
-    closePlayMeModal.addEventListener('click', function() {
-        playMeVideo.pause();
-        playMeModal.classList.remove('active');
-    });
-    
-    prevButton.addEventListener('click', function() {
-        currentVideoIndex = (currentVideoIndex - 1 + videoPlaylist.length) % videoPlaylist.length;
-        playVideoInModal(videoPlaylist[currentVideoIndex]);
-    });
-    
-    nextButton.addEventListener('click', function() {
-        currentVideoIndex = (currentVideoIndex + 1) % videoPlaylist.length;
-        playVideoInModal(videoPlaylist[currentVideoIndex]);
-    });
-    
-    function playVideoInModal(videoSrc) {
-        playMeVideo.src = videoSrc;
-        playMeVideo.play().catch(e => {
-            console.log('Play Me video play failed:', e);
-        });
-    }
 }
 
 // Rotating titles with typing animation
@@ -357,31 +298,16 @@ function initializeModals() {
         });
     }
 
-    const playMeModal = document.getElementById('playMeModal');
-    if (playMeModal) {
-        playMeModal.addEventListener('click', function(e) {
-            if (e.target === this) {
-                const playMeVideo = document.getElementById('playMeVideo');
-                playMeVideo.pause();
-                playMeModal.classList.remove('active');
-            }
-        });
-    }
-
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             closeVideo();
             const playMeModal = document.getElementById('playMeModal');
-            if (playMeModal) {
-                const playMeVideo = document.getElementById('playMeVideo');
-                playMeVideo.pause();
-                playMeModal.classList.remove('active');
-            }
+            if (playMeModal) playMeModal.classList.remove('active');
         }
     });
 }
 
-function openVideo(videoSrc, clickedElement) {
+function openVideo(videoSrc) {
     const modal = document.getElementById('videoModal');
     const modalVideo = document.getElementById('modalVideo');
     
