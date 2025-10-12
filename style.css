@@ -227,6 +227,16 @@ nav a.active::after {
     background: var(--bg-dark);
 }
 
+/* Make the container inside the hero section a flex container to position the arrow */
+.hero .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column; /* Stack hero content and arrow vertically */
+    justify-content: flex-end; /* Push content to the bottom */
+    align-items: center;
+    padding-bottom: 8vh; /* Add some space from the bottom edge */
+}
+
 .hero-video {
     position: absolute;
     top: 0;
@@ -304,11 +314,8 @@ nav a.active::after {
 .scroll-down-arrow {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    position: absolute;
-    bottom: 5px;
-    left: 50%;
-    transform: translateX(-50%);
+    align-items: center; /* Center the icons horizontally */
+    margin-top: 4rem; /* Add space between the title and the arrow */
     transition: all 0.3s ease;
 }
 
