@@ -1205,6 +1205,18 @@ footer {
         flex-direction: column-reverse;
         text-align: center;
     }
+    
+    .header-content {
+        flex-direction: row-reverse;
+    }
+
+    .nav-left, .nav-right {
+        flex: none;
+    }
+
+    .logo {
+        margin-right: auto;
+    }
 
     .about-description {
         margin-left: auto;
