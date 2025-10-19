@@ -649,7 +649,7 @@ section {
 .heading.small {
     font-family: var(--font-primary);
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 1.2;
 }
 
@@ -768,7 +768,7 @@ section {
     position: relative;
     z-index: 2;
     padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(10, 10, 10, 0.4);
     backdrop-filter: blur(20px) saturate(180%);
     margin-top: 280px;
 }
@@ -780,7 +780,7 @@ section {
 
 .work-content h4 {
     color: var(--text-muted);
-    font-weight: 400;
+    font-weight: 500;
 }
 
 /* Skills Section */
